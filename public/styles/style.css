@@ -1,0 +1,297 @@
+body {
+    min-height: 100vh;
+}
+.bg-blue-color {
+    background: rgba(47, 103, 249, 0.83);
+}
+.bg-white {
+    background: rgba(255, 255, 255, 0.849);
+}
+input {
+    border: 2px solid #ffffff;
+}
+.profile-logo {
+    height: 702px;
+    width: 461px;
+    left: -1951px;
+    top: 619px;
+    border-radius: 4px;
+}
+.label {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #ffffff;
+}
+.links {
+    width: 209px;
+    height: 39px;
+    background: #ffffff;
+    border-radius: 16px;
+}
+
+.header {
+    position: absolute;
+    width: 461px;
+    height: 203px;
+
+    border-radius: 4px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    width: 480px;
+    display: inline;
+}
+.bg-blue {
+    background: url("../images/bg2.jpeg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.div {
+    display: flex;
+    max-width: 461px;
+    height: 173px;
+    width: 461px;
+    border-radius: 4px;
+    background-color: rgba(47, 103, 249, 0.8299999833106995);
+    justify-content: space-evenly;
+    background-image: url("../images/bg2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.div2 {
+    display: flex;
+    max-width: 461px;
+    height: 602px;
+    width: 461px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.upload {
+    width: 30px;
+    height: 30px;
+    max-width: 30.064462661743164px;
+
+    margin-right: 10px;
+}
+
+.image {
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.image-sizer {
+    width: 100%;
+    padding-top: 89.28571768439106%;
+    pointer-events: none;
+    font-size: 0;
+}
+
+.file-upload-section {
+    display: flex;
+    justify-content: center;
+    max-width: 335px;
+    height: 62px;
+    width: 335px;
+    border-color: rgba(47, 103, 249, 1);
+    border-width: 3px;
+    border-style: solid;
+    background-color: rgba(248, 40, 40, 0);
+    margin-top: 30%;
+}
+
+.download-text {
+    color: rgba(248, 40, 40, 1);
+    min-width: 80%;
+    font-family: "Tangerine", serif;
+    font-size: 28px;
+    text-shadow: 4px 4px 4px #aaa;
+    font-weight: 700;
+}
+
+.file-upload-section > div {
+    position: relative;
+    margin-top: 15px;
+}
+
+.settings {
+    position: absolute;
+    width: 377px;
+    height: 90px;
+    background: #2f67f9;
+    border-radius: 19px;
+    margin-top: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons {
+    max-height: 70px;
+}
+
+.settings > .icons {
+    color: #ffffff;
+    margin-top: 5px;
+}
+.share-flie-bg {
+    display: flex;
+    max-width: 362px;
+    height: 125px;
+    width: 362px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    margin-top: 5%;
+}
+.share-file-label {
+    color: rgba(248, 40, 40, 1);
+    font-size: 32px;
+    letter-spacing: 0%;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    margin-top: 10%;
+    width: 400px;
+}
+
+.btn {
+    cursor: pointer;
+}
+.input-bd-red {
+    border: solid red 3px !important;
+    border-bottom: red 3px !important;
+}
+.input-bd-blue {
+    border: solid rgba(47, 103, 249, 1) 3px !important;
+    border-bottom: rgba(47, 103, 249, 1) 3px !important;
+}
+
+.mini-search {
+    display: flex;
+    max-width: 180px;
+    height: 30px;
+    width: 180px;
+    border-radius: 14px;
+    background-color: rgba(47, 103, 249, 1);
+}
+
+.plain-section {
+    display: flex;
+    max-width: 461px;
+    height: 81px;
+    width: 461px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 2px solid blue;
+}
+.curve-option {
+    display: flex;
+    max-width: 309px;
+    height: 50px;
+    width: 309px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 1);
+}
+.form-control {
+    background: transparent !important;
+    border-bottom: solid 2px black !important;
+}
+.control-label {
+    color: white !important;
+}
+
+.file-cabinet-img {
+    display: flex;
+    position: relative;
+    min-width: 100%;
+    min-height: 20px;
+    max-width: 223px;
+    height: 200px;
+}
+.image-file-cabinet {
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    height: 60%;
+    width: 70%;
+}
+
+.rows {
+    display: flex;
+}
+.min-text {
+    color: white;
+    font-family: "Roboto";
+    font-style: normal;
+}
+.icon-images {
+    height: 80px;
+    width: 50px;
+}
+.thank-you-for-registering-a-me {
+    max-width: 300px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+
+.red-label {
+    color: rgba(248, 40, 40, 1);
+    font-size: 15px;
+    letter-spacing: 0%;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+.footer {
+    display: flex;
+    height: 113px;
+    width: 100%;
+    background-color: rgba(47, 103, 249, 1);
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+.white-label {
+    color: white;
+    font-size: 15px;
+    letter-spacing: 0%;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+
+.have-a-second-thought-about-th {
+    max-width: 312px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 15px;
+    letter-spacing: 0%;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+
+.curve-option-2 {
+    display: flex;
+    max-width: 309px;
+    height: 50px;
+    width: 100%;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.browse {
+    cursor: pointer;
+}
