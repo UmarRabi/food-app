@@ -10,10 +10,12 @@ class Appointments extends Model
     use HasFactory;
     protected $table='appointments';
     protected $fillable=[
-        'service_code',
+        'title',
+        'channel',
         'booked_date',
         'booked_time',
-        'location'
+        'location',
+        'details'
     ];
 
     public function service(){

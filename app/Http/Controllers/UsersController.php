@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendReminder;
 use App\Models\Appointments;
 use App\Models\Contacts;
 use Illuminate\Http\Request;
 use App\Models\Files;
+use Carbon\Carbon;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -51,5 +54,19 @@ class UsersController extends Controller
         $appointment=new Appointments($request->all());
         $appointment->user()->associate(Auth::user());
         $appointment->save();
+        $schedule=new Schedule();
+        $reminder=$request->reminder;
+
+        $dateTime = date($reminder);
+       // return $dateTime;
+        $reminder =  Carbon::create($dateTime)->format('m-d-Y H:i:s');
+      //  return $reminder;
+        // $reminder=Carbon::date('Y-m-d H:i:S',$request->reminder);
+       $schedule->job(new SendReminder())->monthlyOn($reminder);
+       return "cool";
+    }
+
+    public function reminder(){
+
     }
 }

@@ -2,25 +2,22 @@
 @section('content')
  <div class="card mt-4" style="background: transparent !important">
     <div class="card-header" style="height:200px">
+        <x-auth-validation-errors class="mb-4 errors" :errors="$errors" />
         <div class="file-cabinet-img d-flex justify-content-center" >
-    <img
-      loading="lazy"
-      src="{{asset('images/file-cabinet.png')}}"
+            <img
+            loading="lazy"
+            src="{{asset('images/file-cabinet.png')}}"
 
-      class="image-file-cabinet mt-3"
-    />
-</div>
-<style>
-
-
-</style>
+            class="image-file-cabinet mt-3"
+            />
+        </div>
     </div>
     <div class="card-body">
         <form action="" method="post">
             @csrf
             <div class="form-group">
                 <label for="" class="control-label">Username</label>
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <label for="" class="control-label">Password</label>
@@ -39,13 +36,13 @@
             Login with Facebook
         </div>
         <div class="rows d-flex justify-content-center min-text">
-            Login with Facebook
+            Login with Google
         </div>
 
         <div class="rows mt-5 d-flex justify-content-center">
         </div>
         <div class="rows mt-5 d-flex justify-content-center min-text">
-            Registration
+            <a href="{{route('register')}}" style="color: white">Register</a>
         </div>
 
     </div>

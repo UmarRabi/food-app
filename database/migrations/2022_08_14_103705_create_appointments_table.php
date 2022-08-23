@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('service_code', 5);
+            $table->string('title');
             $table->foreignId('user_id');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->string('booked_date');
             $table->string('booked_time');
-            $table->foreign("service_code")->references("code")->on("services")->onDelete("cascade");
+            $table->text('channel');
+            $table->text('details');
             $table->timestamps();
         });
     }
