@@ -8,9 +8,9 @@
      </svg>
 </div>
 <div class="rows" style="margin: 30px">
-    <div class="col-6">
-        <div class="curve-option-2" onclick="alert()" style="display:grid; justify-items :center;">
-            <span class="red-label" style="margin-top:8%">Update Account</span>
+   <div class="col-6" >
+        <div class="curve-option-2" onclick="window.location.href={{route('files')}}" style="display:grid; justify-items :center;">
+             <a href="{{route('files')}}" class="red-label" style="margin-top:8%;">Files</a>
         </div>
     </div>
      <div class="col-6" >
@@ -21,25 +21,25 @@
 </div>
 <div class="rows" style="margin: 30px">
     <div class="col-6" >
-        <div class="curve-option-2" style="display:grid; justify-items :center;">
-             <span class="red-label" style="margin-top:8%;">Create Account</span>
+        <div class="curve-option-2" onclick="window.location.href={{route('view-appointment')}}" style="display:grid; justify-items :center;">
+             <a href="{{route('view-appointment')}}" class="red-label" style="margin-top:8%;">Appointments</a>
         </div>
     </div>
      <div class="col-6" >
-        <div class="curve-option-2" style="display:grid; justify-items :center;">
+        <div class="curve-option-2" onclick="window.location.href={{route('appointment')}}" style="display:grid; justify-items :center;">
              <a href="{{route('appointment')}}" class="red-label" style="margin-top:8%;">Book Appointment</a>
         </div>
     </div>
 </div>
 <div class="rows" style="margin: 30px">
     <div class="col-6" >
-        <div class="curve-option-2" style="display:grid; justify-items :center;">
-             <span class="red-label" style="margin-top:8%;">Search Account</span>
+        <div class="curve-option-2" onclick="window.location.href={{route('view-contacts')}}" style="display:grid; justify-items :center;">
+             <a href="{{route('view-contacts')}}" class="red-label" style="margin-top:8%;">Contacts</a>
         </div>
     </div>
      <div class="col-6" >
-        <div class="curve-option-2" style="display:grid; justify-items :center;">
-             <span class="red-label" style="margin-top:8%;">Manage Account</span>
+        <div class="curve-option-2" onclick="window.location.href={{route('contacts')}}" style="display:grid; justify-items :center;">
+             <a href="{{route('contacts')}}" class="red-label" style="margin-top:8%;">Create Contacts</a>
         </div>
     </div>
 </div>

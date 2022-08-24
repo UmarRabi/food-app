@@ -52,9 +52,8 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
         event(new Registered($user));
-        return view('thanks');
+        return view('thanks')->with('message', "Your account have been registered. Pls proceed to login");
       //  Auth::login($user);
 
        // return redirect(RouteServiceProvider::HOME);

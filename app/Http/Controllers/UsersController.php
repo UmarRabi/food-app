@@ -36,18 +36,29 @@ class UsersController extends Controller
         $file->user()->associate(auth::user());
         $file->save();
         $uploadedFile->storeAs('uploads', $identifier.'.'.$uploadedFile->getClientOriginalExtension(), 'public');
-        return back()->with('message', 'File uploaded successfully');
+        return view('thanks')->with('message', 'File uploaded successfully');
     }
 
     public function savecontact(Request $request){
         $contact=new Contacts($request->all());
         $contact->user()->associate(Auth::user());
         $contact->save();
-        return back()->with('message', 'Contact created successfully');
+        return view('thanks')->with('message', 'Contacts saved successfully');
+      //  return back()->with('message', 'Contact created successfully');
+    }
+
+    public function viewcontacts(){
+        $contacts=Contacts::where('user_id', Auth::user()->id)->get();
+        return view('contacts')->with('contacts', $contacts);
     }
 
     public function contacts(){
         return view('contact');
+    }
+
+    public function viewappointment(){
+        $appointments= Appointments::where('user_id', Auth::user()->id)->get();
+        return view('appointments')->with('appointments', $appointments);
     }
 
     public function saveappointment(Request $request){
@@ -63,10 +74,19 @@ class UsersController extends Controller
       //  return $reminder;
         // $reminder=Carbon::date('Y-m-d H:i:S',$request->reminder);
        $schedule->job(new SendReminder())->monthlyOn($reminder);
-       return "cool";
+       return view('thanks')->with('message', "Your appointment have been booked successfully");
     }
 
     public function reminder(){
 
+    }
+
+    public function files(){
+        $files=Files::where('user_id',Auth::user()->id )->get();
+        return view('files')->with('files', $files);
+    }
+
+    public function file($id){
+        return view('file-upload');
     }
 }
