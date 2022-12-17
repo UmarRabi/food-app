@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('transaction', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('middlename')->nullable();
-            $table->string('email');
-            $table->string('postal_code')->nullable();
-            $table->string('phone')->nullable();
-            $table->text('address')->nullable();
-            $table->text('city')->nullable();
+            $table->string('transaction_id')->nullable()->unique();
+            $table->string('status')->default('initiated');
             $table->foreignId('user_id');
+            $table->string('total');
+            $table->string('reference')->unique();
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('transaction');
     }
 };

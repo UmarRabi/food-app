@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 /*
@@ -17,31 +18,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/users')->middleware('auth')->group(function(){
+Route::prefix('/users')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('home');
     })->name('dashboard');
-    Route::get('/upload', [UsersController::class, 'upload'])->name('upload');
-    Route::post('/upload', [UsersController::class, 'savefile'])->name('savefile');
-    Route::get('files', [UsersController::class, 'files'])->name('files');
-    Route::get('/files/{id}', [UsersController::class, 'file'])->name('file');
-    Route::get('/profile', [UsersController::class, 'profile'])->name('profile');
-    Route::prefix('/appointments')->group(function(){
-       Route::get('/', [UsersController::class, 'appointment'])->name('appointment');
-       Route::get('/view', [UsersController::class, 'viewappointment'])->name('view-appointment');
-       Route::post('/', [UsersController::class, 'saveappointment'])->name('save-appointment');
-    });
-    Route::prefix('/contacts')->group(function(){
-        Route::get('/', [UsersController::class, 'contacts'])->name('contacts');
-        // Route::get('/{id}', [UsersController::class, 'contact'])->name('contact');
-        Route::post('/', [UsersController::class, 'savecontact'])->name('savecontact');
-        Route::get('/view', [UsersController::class, 'viewcontacts'])->name('view-contacts');
-    });
+    Route::get('/foods', [UsersController::class, 'foods'])->name('foods');
+    Route::get('/cart', [UsersController::class, 'carts'])->name('list-cart-items');
+    Route::get('/cart/{id}', [UsersController::class, 'cart'])->name('add-to-cart');
+    Route::get('/checkout', [UsersController::class, 'checkout'])->name('checkout');
+    Route::get('/process', [PaymentController::class, 'process'])->name('process');
+    Route::get('/pay', [PaymentController::class, 'initialize'])->name('initialize');
+    Route::get('/transaction', [PaymentController::class, 'transactions'])->name('transactions');
+    Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])->name('transaction');
 });
-Route::get('/share', function(){
-    return view('file-upload');
-});
-Route::get('/files', function(){
+Route::get('/continue', function () {
+    return view('continue');
+})->name('continue');
+Route::get('/files', function () {
     return view('files');
 });
-require __DIR__.'/auth.php';
+Route::get('/menu', function () {
+    return view('menu');
+});
+Route::get('/foods', function () {
+    return view('foods');
+});
+Route::get('/order', function () {
+    return view('my-current-order');
+});
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+require __DIR__ . '/auth.php';

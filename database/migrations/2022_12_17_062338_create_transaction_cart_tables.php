@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('transaction_cart', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->string('name')->unique();
-            $table->string('original_name');
+            $table->foreignId('cart_id');
+            $table->foreignId('transaction_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('transaction_cart_tables');
     }
 };

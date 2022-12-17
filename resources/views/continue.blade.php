@@ -10,7 +10,7 @@
     <body>
         <div class="v19_81">
             <div class="v19_82">
-                <img style="width: 100%" src="{{ asset('images/food1.png') }}" alt="">
+                <img src="{{ asset('images/food1.png') }}" alt="">
             </div>
 
             <span class="v19_83">
@@ -21,55 +21,31 @@
             <div class="v19_84"></div><span class="v19_85">Order Online</span>
             <div class="v19_86"></div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <x-auth-validation-errors class="mb-4 errors" :errors="$errors" />
+        <div class="row ">
+            <div class="d-flex justify-content-center" style="margin-top: 15%">
+                <img src="{{ asset('images/delivery.svg') }}" alt="Vector1989" class="vector-vector" />
             </div>
-            <div class="card-body">
-                <div class="container" style="color: #1a9ad1;font-size:18px">Login</div>
-                <form action="" method="post"" class="row d-flex justify-content-center">
-                    @csrf
-                    <div class="form-group col-10">
-                        <label for="" class="control-label">Username</label>
-                        <input type="email" name="email" class="form-control">
-                    </div>
-                    <div class="form-group col-10">
-                        <label for="" class="control-label">Password</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-
-                    <div class="rows mt-5 d-flex justify-content-center">
-                        <div class="form-group col-10">
-                            <input style="width: 100%" type="submit" class="btn btn-primary" class="form-control">
-                        </div>
-                    </div>
-                </form>
-                <div class="row d-flex justify-content-center mt-3">
-                    {{-- <div class="col-md-5">
-                        <button class="btn btn-primary">Submit</button>
-                    </div> --}}
-                    <div class="col-md-7 d-flex justify-content-end min-text" style="color: #1a9ad1;font-size:18px">
-                        Forgot Password
-                    </div>
-                </div>
-
-                <div class="rows mt-5 d-flex justify-content-center">
-                </div>
-                <div class="rows mt-5 d-flex justify-content-center min-text">
-                    <a href="{{ route('register') }}" style=" color:#1a9ad1;font-size:18px">Register</a>
-                </div>
-
-            </div>
+            <p class="delivery-text">Swift delivery</p>
         </div>
-
+        <div class="row ">
+            <div class="d-flex justify-content-center" style="margin-top: 15%">
+                <img src="{{ asset('images/swift.svg') }}" alt="Vector1989" class="vector-vector" />
+            </div>
+            <p class="delivery-text">Fresh and Sweet</p>
+        </div>
+        <div class="row ">
+            <div class="d-flex justify-content-center" style="margin-top: 5%">
+                <a href="{{ route('login') }}" class="btn"
+                    style="background-color:#1a9ad1;color:white; diplay:flex; text-align:center;">
+                    Continue
+                </a>
+            </div>
+            {{-- <p class="delivery-text">Fresh and Sweet</p> --}}
+        </div>
     </body>
 
     </html> <br /><br />
     <style>
-        .control-label {
-            color: #1a9ad1
-        }
-
         .delivery-text {
             color: #1a9ad1;
             font-family: Lato;
@@ -88,7 +64,7 @@
         }
 
         .v19_81 {
-            width: 100%;
+            width: 430px;
             height: 214px;
             background: rgba(255, 255, 255, 1);
             opacity: 1;
@@ -99,7 +75,7 @@
         }
 
         .v19_82 {
-            width: 100%;
+            width: 430px;
             height: 227px;
             background: rgba(25, 153, 208, 0.11999999731779099);
             opacity: 1;
