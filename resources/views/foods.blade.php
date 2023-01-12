@@ -11,14 +11,14 @@
         <div class="v19_81">
             @include('_partials.topbar-blue')
             <div class="row mt-3">
-                <div class="col-8">
+                <div class="col-8 d-flex justify-content-center">
                     <span
                         style=" color: #1a9ad1;
                         font-family: Lato;
                         font-weight: Bold;
                         font-size: 32px;
                         opacity: 1;">
-                        Foods
+                        Menu
                     </span>
                 </div>
                 <div class="col-4">
@@ -38,6 +38,32 @@
                 @endif
             </div>
             <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-2">
+                                <span
+                                    style="
+                                    color: #1a9ad1;
+                                    font-family: Lato;
+                                    font-weight: Bold;
+                                    font-size: 20px;
+                                    opacity: 1;">
+                                    Meals
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <select class="form-control" name="meals" id="meals">
+                                    <option value="">Select ...</option>
+                                    <option value="breakfast">Break fast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="row">
 
                     @foreach ($foods as $food)
@@ -99,6 +125,11 @@
 
                         })
                     })
+                })
+                document.querySelector('#meals').addEventListener('change', function() {
+                    let url = String(window.location)
+
+                    window.location.href = url.split('?')[0] + '?meal=' + this.value
                 })
             }
         }

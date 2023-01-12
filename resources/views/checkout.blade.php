@@ -68,10 +68,11 @@
                 <?php $total = 0; ?>
                 @foreach ($carts as $cart)
                     <div class="row d-flex justify-content-center">
-                        <div class="col-8">
+                        <div class="col-8 mt-2">
                             <div class="rows">
-                                <div class="list-label col-6">{{ $cart->food->name }} </div>
-                                <div class="col-6">
+                                <div class="list-label col-4">{{ $cart->food->name }} </div>
+                                <div class="list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
+                                <div class="col-4">
                                     <img src="{{ asset($cart->food->image) }}" alt=""
                                         style="width: 40px;height:40px;">
                                 </div>
@@ -111,6 +112,15 @@
                         <div class="row list-label"><span class="col-2">Total</span>
                             <div class="col-4 top-button" style="">
                                 {{ $total }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center mt-3">
+                    <div class="col-8">
+                        <div class="row list-label"><span class="col-2">Type</span>
+                            <div class="col-4 top-button" style="">
+                                {{ session('orderType') }}
                             </div>
                         </div>
                     </div>

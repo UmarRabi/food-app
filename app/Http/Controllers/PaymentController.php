@@ -39,6 +39,7 @@ class PaymentController extends Controller
             $transaction->description = 'food purchase';
             $transaction->reference =
                 $initiate['data']['reference'];
+            $transaction->order_type = session('orderType');
             $transaction->save();
             return redirect($initiate['data']['authorization_url']);
         }

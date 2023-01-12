@@ -115,6 +115,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="row d-flex justify-content-center mt-3">
+                    <div class="col-8">
+                        <div class="row list-label"><span class="col-2">Type</span>
+                            <div class="col-4 top-button" style="">
+                                {{ $transaction->order_type  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card">

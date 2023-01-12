@@ -98,9 +98,15 @@ class UsersController extends Controller
         return view('files')->with('files', $files);
     }
 
-    public function foods()
+    public function foods(Request $request)
     {
-        $foods = Foods::get();
+        $foods = "";
+        if ($request->query('meal') != null) {
+            $foods = Foods::where('meal', $request->query('meal'))->get();
+        } else {
+            $foods = Foods::get();
+        }
+
         return view('foods', compact('foods'));
     }
 
@@ -130,5 +136,4 @@ class UsersController extends Controller
         $carts = Carts::with('food')->where('user_id', Auth::user()->id)->where('status', false)->get();
         return view('checkout', compact('carts'));
     }
-
 }

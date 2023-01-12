@@ -65,16 +65,17 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <div class="row">
+                {{-- <div class="row">
                     <h4>Breakfast</h4>
-                </div>
+                </div> --}}
                 @if (count($carts))
                     @foreach ($carts as $cart)
                         <div class="row d-flex justify-content-center">
-                            <div class="col-8">
+                            <div class="col-8 mt-2">
                                 <div class="rows">
-                                    <div class="list-label col-6">{{ $cart->food->name }} </div>
-                                    <div class="col-6">
+                                    <div class="list-label col-4">{{ $cart->food->name }} </div>
+                                    <div class="list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
+                                    <div class="col-4">
                                         <img src="{{ asset($cart->food->image) }}" alt=""
                                             style="width: 40px;height:40px;">
                                     </div>

@@ -49,4 +49,8 @@ Route::get('/order', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+Route::get('/order/{type}', function ($type) {
+    session(['orderType' => $type]);
+    return redirect()->route('login');
+})->name('order-type');
 require __DIR__ . '/auth.php';
