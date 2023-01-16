@@ -45,10 +45,59 @@ body {
     display: flex;
     justify-content: center;
 }
-
 .row {
     width: 480px;
     display: inline;
+}
+/* Create four equal columns that floats next to each other */
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+    .row {
+        width: 100vw;
+        display: inline;
+    }
+    .btn {
+        cursor: pointer;
+        width: 300px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+    .fresh {
+        font-size: 40px;
+    }
+
+    .v19_82 {
+        width: 100% !important;
+    }
+
+    .v19_82 > img {
+        width: 100%;
+    }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .row {
+        width: 100vw;
+        display: inline;
+    }
+    .btn {
+        cursor: pointer;
+        width: 300px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .fresh {
+        font-size: 40px;
+    }
+
+    .v19_82 {
+        width: 100% !important;
+    }
 }
 .bg-blue {
     background: url("../images/bg2.jpeg");
@@ -294,4 +343,98 @@ body {
 }
 .browse {
     cursor: pointer;
+}
+
+.delivery-text {
+    color: #1a9ad1;
+    font-family: Lato;
+    font-weight: ExtraBold;
+    font-size: 24px;
+    opacity: 1;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+}
+
+.v19_81 {
+    width: 430px;
+    height: 214px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.v19_82 {
+    width: 430px;
+    height: 227px;
+    background: rgba(25, 153, 208, 0.11999999731779099);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.v19_83 {
+    width: 261px;
+    color: rgba(255, 251, 251, 1);
+    position: absolute;
+    top: 349px;
+    left: 84px;
+    font-family: Lato;
+    font-weight: Medium;
+    font-size: 36px;
+    opacity: 1;
+    text-align: center;
+}
+
+.v19_84 {
+    width: 216px;
+    height: 52px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: absolute;
+    top: 710px;
+    left: 107px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    overflow: hidden;
+}
+
+.v19_85 {
+    width: 143px;
+    color: rgba(25, 153, 208, 0.11999999731779099);
+    position: absolute;
+    top: 722px;
+    left: 143px;
+    font-family: Lato;
+    font-weight: Bold;
+    font-size: 24px;
+    opacity: 1;
+    text-align: center;
+}
+
+.v19_86 {
+    width: 570px;
+    height: 598px;
+    background: url("../images/v19_86.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 192px;
+    left: 70px;
+    overflow: hidden;
 }
