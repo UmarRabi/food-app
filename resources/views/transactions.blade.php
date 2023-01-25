@@ -5,6 +5,7 @@
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     </head>
 
     <body style="height:100vh">
@@ -32,27 +33,27 @@
             <div class="card-body">
             </div>
         </div>
-        <div class="card">
+        <div class="card" style="position: absolute; margin-top:30%">
             <div class="crad-body">
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>amount</th>
-                            <th style="width: 100px !important">reference</th>
-                            <th>Date</th>
+                            <th class="mobile-text">amount</th>
+                            <th class="mobile-text" style="width: 100px !important">reference</th>
+                            <th class="mobile-text">Date</th>
                             {{-- <th>Channel</th> --}}
-                            <th>Action</th>
+                            <th class="mobile-text">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($transactions as $transaction)
                             <tr>
-                                <td>{{ $transaction->total }}</td>
-                                <td>{{ $transaction->reference }}</td>
-                                <td>{{ $transaction->created_at }}</td>
+                                <td class="mobile-text">{{ $transaction->total }}</td>
+                                <td class="mobile-text">{{ $transaction->reference }}</td>
+                                <td class="mobile-text">{{ $transaction->created_at }}</td>
                                 {{-- <td>{{ $transaction->channel }}</td> --}}
                                 <td>
-                                    <a class="btn btn-primary"
+                                    <a class="btn btn-primary mobile-text"
                                         href="{{ route('transaction', ['id' => $transaction->id]) }}">View</a>
                                 </td>
                             </tr>

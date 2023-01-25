@@ -64,6 +64,21 @@
                         <div class="col-8 mt-2">
                             <div class="rows">
                                 <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                                <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{ asset($cart->food->image) }}" alt=""
+                                        style="width: 40px;height:40px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- @foreach ($carts as $cart)
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-8 mt-2">
+                            <div class="rows">
+                                <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
                                 <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
                                 <div class="col-4">
                                     <img src="{{ asset($cart->food->image) }}" alt=""
@@ -73,7 +88,7 @@
                         </div>
                     </div>
                     <?php $total = $total + $cart->food->price * $cart->quantity; ?>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
         <div class="card">

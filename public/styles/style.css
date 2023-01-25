@@ -315,6 +315,12 @@ body {
     font-family: Roboto, sans-serif;
 }
 
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
 .red-label {
     color: rgba(248, 40, 40, 1);
     font-size: 15px;
