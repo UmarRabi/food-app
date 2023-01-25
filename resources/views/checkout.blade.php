@@ -5,20 +5,13 @@
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     </head>
 
     <body style="height:100vh">
         <div class="v19_81">
             @include('_partials.topbar-white')
             <div class="row mt-3">
-                <div class="col-8">
-
-                </div>
-                <div class="col-4">
-                    {{-- <button class="btn btn-primary top-button" style="">
-                        View Cart
-                    </button> --}}
-                </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <span class="menu-label">
@@ -70,8 +63,8 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-8 mt-2">
                             <div class="rows">
-                                <div class="list-label col-4">{{ $cart->food->name }} </div>
-                                <div class="list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
+                                <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                                <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
                                 <div class="col-4">
                                     <img src="{{ asset($cart->food->image) }}" alt=""
                                         style="width: 40px;height:40px;">
@@ -86,13 +79,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <h3 class="order_summary">Order Summary</h3>
+                    <h3 class="order_summary mobile-text">Order Summary</h3>
                 </div>
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Subtotal</span>
-                            <div class="col-4 top-button" style="">
+                        <div class="row list-label"><span class="mobile-text col-2">Subtotal</span>
+                            <div class="col-4 top-button mobile-text" style="">
                                 {{ $total }}
                             </div>
                         </div>
@@ -100,8 +93,8 @@
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-8">
-                        <div class="row list-label"><span class="col-2">VAT</span>
-                            <div class="col-4 top-button" style="">
+                        <div class="row list-label"><span class="col-2 mobile-text">VAT</span>
+                            <div class="col-4 top-button mobile-text" style="">
                                 0.00
                             </div>
                         </div>
@@ -109,8 +102,8 @@
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Total</span>
-                            <div class="col-4 top-button" style="">
+                        <div class="row list-label"><span class="col-2 mobile-text">Total</span>
+                            <div class="col-4 top-button mobile-text" style="">
                                 {{ $total }}
                             </div>
                         </div>
@@ -118,7 +111,7 @@
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Type</span>
+                        <div class="row list-label"><span class="col-2 mobile-text">Type</span>
                             <div class="col-4 top-button" style="">
                                 {{ session('orderType') }}
                             </div>
@@ -130,7 +123,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <h3 class="order_summary">Bank Details</h3>
+                    <h3 class="order_summary mobile-text">Bank Details</h3>
                 </div>
                 {{-- <div class="row">
                     <h5>Payment Options</h5>

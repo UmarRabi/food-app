@@ -5,6 +5,7 @@
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     </head>
 
     <body style="height:100vh">
@@ -21,49 +22,14 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <span class="menu-label">
+                <span class="menu-label mobile-text">
                     My Carts
                 </span>
 
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-body">
-                {{-- <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="listing-blue">Meals</div>
-                            </div>
-                            <div class="col-4">
-                                <button class="btn btn-primary">
-                                    Drinks
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="listing-blue">Meals</div>
-                            </div>
-                            <div class="col-4">
-                                <button class="btn btn-primary">
-                                    Drinks
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
-        </div>
-        <div class="card">
+        <div class="card" style="position: absolute; margin-top:50%">
             <div class="card-body">
                 {{-- <div class="row">
                     <h4>Breakfast</h4>
@@ -73,8 +39,9 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-8 mt-2">
                                 <div class="rows">
-                                    <div class="list-label col-4">{{ $cart->food->name }} </div>
-                                    <div class="list-label col-4">{{ $cart->food->price * $cart->quantity }} </div>
+                                    <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                                    <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
+                                    </div>
                                     <div class="col-4">
                                         <img src="{{ asset($cart->food->image) }}" alt=""
                                             style="width: 40px;height:40px;">
@@ -93,7 +60,7 @@
 
             </div>
         </div>
-        <div class="card mt-5" style="margin-bottom: 0%">
+        <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <div class="rows d-flex justify-content-center">

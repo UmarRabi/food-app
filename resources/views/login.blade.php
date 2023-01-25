@@ -5,6 +5,7 @@
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+        {{-- <link rel="stylesheet" href="{{ asset('styles/style.css') }}"> --}}
     </head>
 
     <body>
@@ -13,11 +14,11 @@
                 <img style="width: 100%" src="{{ asset('images/food1.png') }}" alt="">
             </div>
 
-            <span class="v19_83">
+            {{-- <span class="v19_83">
 
                 im
                 Fresh and Sweet
-                Foods</span>
+                Foods</span> --}}
             <div class="v19_84"></div><span class="v19_85">Order Online</span>
             <div class="v19_86"></div>
         </div>
@@ -26,21 +27,21 @@
                 <x-auth-validation-errors class="mb-4 errors" :errors="$errors" />
             </div>
             <div class="card-body">
-                <div class="container" style="color: #1a9ad1;font-size:18px">Login</div>
+                <div class="container text" style="color: #1a9ad1;font-size:18px">Login</div>
                 <form action="" method="post"" class="row d-flex justify-content-center">
                     @csrf
                     <div class="form-group col-10">
-                        <label for="" class="control-label">Username</label>
-                        <input type="email" name="email" class="form-control">
+                        <label for="" class="text control-label">Username</label>
+                        <input type="email" style="font-size: 40px !important" name="email" class="text form-control">
                     </div>
                     <div class="form-group col-10">
-                        <label for="" class="control-label">Password</label>
-                        <input type="password" name="password" class="form-control">
+                        <label for="" class="text control-label">Password</label>
+                        <input type="password" name="password" class="text form-control">
                     </div>
 
                     <div class="rows mt-5 d-flex justify-content-center">
                         <div class="form-group col-10">
-                            <input style="width: 100%" type="submit" class="btn btn-primary" class="form-control">
+                            <input style="width: 100%" type="submit" class="btn btn-primary text">
                         </div>
                     </div>
                 </form>
@@ -48,7 +49,7 @@
                     {{-- <div class="col-md-5">
                         <button class="btn btn-primary">Submit</button>
                     </div> --}}
-                    <div class="col-md-7 d-flex justify-content-end min-text" style="color: #1a9ad1;font-size:18px">
+                    <div class="col-md-7 d-flex justify-content-end min-text text" style="color: #1a9ad1;">
                         Forgot Password
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                 <div class="rows mt-5 d-flex justify-content-center">
                 </div>
                 <div class="rows mt-5 d-flex justify-content-center min-text">
-                    <a href="{{ route('register') }}" style=" color:#1a9ad1;font-size:18px">Register</a>
+                    <a href="{{ route('register') }}" class="text" style=" color:#1a9ad1;">Register</a>
                 </div>
 
             </div>
@@ -162,6 +163,26 @@
             top: 192px;
             left: 70px;
             overflow: hidden;
+        }
+
+        @media screen and (max-width: 992px) {
+            .form-control {
+                height: 80px !important;
+            }
+
+            .text {
+                font-size: 40px !important;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .form-control {
+                height: 80px !important;
+            }
+
+            .text {
+                font-size: 40px !important;
+            }
         }
     </style>
 @endsection

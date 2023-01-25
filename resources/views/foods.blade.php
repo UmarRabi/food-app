@@ -5,10 +5,11 @@
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     </head>
 
     <body style="height:100vh">
-        <div class="v19_81">
+        <div class="row">
             @include('_partials.topbar-blue')
             <div class="row mt-3">
                 <div class="col-8 d-flex justify-content-center">
@@ -21,6 +22,8 @@
                         Menu
                     </span>
                 </div>
+            </div>
+            <div class="row d-flex justify-content-end">
                 <div class="col-4">
                     <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
                         Cart
@@ -40,14 +43,13 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-center">
                     <div class="col-8">
-                        <div class="row">
-                            <div class="col-2">
-                                <span
+                        <div class="rows">
+                            <div class="col-3">
+                                <span class="fresh"
                                     style="
                                     color: #1a9ad1;
                                     font-family: Lato;
                                     font-weight: Bold;
-                                    font-size: 20px;
                                     opacity: 1;">
                                     Meals
                                 </span>
@@ -62,22 +64,21 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div class="row">
+                <div class="row d-flex">
 
                     @foreach ($foods as $food)
                         <div class="col-6 mt-2">
                             <div class="rows">
-                                <div class="col-5">
+                                <div class="col-4">
                                     <img class="food-show" src="{{ asset($food->image) }}" alt="">
                                 </div>
-                                <div class="col-7">
+                                <div class="col-8">
                                     <input type="hidden" name="product_id" value="{{ $food->id }}">
-                                    <div class="listing-text">{{ $food->name }}</div>
-                                    <div class="listing-text">{{ $food->price }}</div>
+                                    <div class="listing-text fresh">{{ $food->name }}</div>
+                                    <div class="listing-text fresh">{{ $food->price }}</div>
                                     <a href="{{ route('add-to-cart', ['id' => $food->id]) }}"
-                                        class="btn-cart btn btn-primary btn-listing">Add
+                                        class="btn-cart btn btn-primary fresh">Add
                                         To
                                         Cart</a>
                                 </div>

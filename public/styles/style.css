@@ -75,6 +75,14 @@ body {
     .v19_82 > img {
         width: 100%;
     }
+    .form-control {
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .mobile-text {
+        font-size: 40px !important;
+    }
 }
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
@@ -97,6 +105,14 @@ body {
 
     .v19_82 {
         width: 100% !important;
+    }
+
+    .form-control {
+        height: 80px;
+        font-size: 40px;
+    }
+    .mobile-text {
+        font-size: 40px !important;
     }
 }
 .bg-blue {
