@@ -1,95 +1,83 @@
 @extends('layouts.white')
 @section('content')
-    <!DOCTYPE html>
-    <html>
 
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
-    </head>
+    <div class="v19_81">
+        @include('_partials.topbar-white')
+        <div class="row mt-3">
+            <div class="col-8">
 
-    <body style="height:100vh">
-        <div class="v19_81">
-            @include('_partials.topbar-white')
-            <div class="row mt-3">
-                <div class="col-8">
-
-                </div>
-                <div class="col-4">
-                    {{-- <button class="btn btn-primary top-button" style="">
+            </div>
+            <div class="col-4">
+                {{-- <button class="btn btn-primary top-button" style="">
                         View Cart
                     </button> --}}
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <span class="menu-label mobile-text">
-                    My Carts
-                </span>
-
             </div>
         </div>
+        <div class="row d-flex justify-content-center">
+            <span class="menu-label mobile-text">
+                My Carts
+            </span>
 
-        <div class="card" style="position: absolute; margin-top:50%">
-            <div class="card-body">
-                {{-- <div class="row">
+        </div>
+    </div>
+
+    <div class="card" style="position: absolute; margin-top:50%">
+        <div class="card-body">
+            {{-- <div class="row">
                     <h4>Breakfast</h4>
                 </div> --}}
-                @if (count($carts))
-                    @foreach ($carts as $cart)
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-8 mt-2">
-                                <div class="rows">
-                                    <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
-                                    <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset($cart->food->image) }}" alt=""
-                                            style="width: 40px;height:40px;">
-                                    </div>
+            @if (count($carts))
+                @foreach ($carts as $cart)
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-8 mt-2">
+                            <div class="rows">
+                                <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                                <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{ asset($cart->food->image) }}" alt=""
+                                        style="width: 40px;height:40px;">
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                @else
-                    <div class="row">
-                        <span>
-                            You don't have any item in your cart
-                        </span>
                     </div>
-                @endif
+                @endforeach
+            @else
+                <div class="row">
+                    <span>
+                        You don't have any item in your cart
+                    </span>
+                </div>
+            @endif
 
-            </div>
         </div>
-        <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
-            <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                    <div class="rows d-flex justify-content-center">
-                        <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
-                            Checkout
-                        </a>
-                    </div>
-                    <div class="rows d-flex justify-content-center">
-                        <button class="btn btn-primary top-button" style="">
-                            Set Location
-                        </button>
-                    </div>
+    </div>
+    <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="rows d-flex justify-content-center">
+                    <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
+                        Checkout
+                    </a>
+                </div>
+                <div class="rows d-flex justify-content-center">
+                    <button class="btn btn-primary top-button" style="">
+                        Set Location
+                    </button>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
-
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Track Your Order
-                </button>
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Give Feedback
-                </button>
-
-            </div>
         </div>
+        <div class="row d-flex justify-content-center">
 
-    </body>
+            <button class="col-4 btn btn-primary top-button" style="">
+                Track Your Order
+            </button>
+            <button class="col-4 btn btn-primary top-button" style="">
+                Give Feedback
+            </button>
 
-    </html> <br /><br />
+        </div>
+    </div>
     <style>
         .control-label {
             color: #1a9ad1
@@ -114,7 +102,7 @@
 
         .v19_81 {
             width: 100%;
-            height: 200px;
+            height: 30%;
             background: #1a9ad1;
             ;
             opacity: 1;

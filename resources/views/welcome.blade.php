@@ -29,11 +29,11 @@
         </span>
     </div>
     <div class="row d-flex justify-content-center">
-        <div style="margin-top: 25%; width:200px; text-align:center" class="fresh">Fresh and Sweet
+        <div style="margin-top: 25%; width:250px; text-align:center" class="fresh">Fresh and Sweet
             Foods</div>
     </div>
     <div class="row d-flex justify-content-center" style="margin-top: 30%">
-        <a href="{{route('continue')}}" class="btn sub-tag">
+        <a href="{{ route('continue') }}" class="btn sub-tag">
             Order Online
         </a>
     </div>

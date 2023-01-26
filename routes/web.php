@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::prefix('/users')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('home');
+        return redirect()->route('foods');
     })->name('dashboard');
     Route::get('/foods', [UsersController::class, 'foods'])->name('foods');
     Route::get('/cart', [UsersController::class, 'carts'])->name('list-cart-items');

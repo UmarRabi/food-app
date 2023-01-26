@@ -1,120 +1,112 @@
 @extends('layouts.white')
 @section('content')
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
-    </head>
-
-    <body style="height:100vh">
-        <div class="row">
-            @include('_partials.topbar-blue')
-            <div class="row mt-3">
-                <div class="col-8 d-flex justify-content-center">
-                    <span
-                        style=" color: #1a9ad1;
+    <div class="row">
+        @include('_partials.topbar-blue')
+        <div class="row mt-3">
+            <div class="col-8 d-flex justify-content-center">
+                <span
+                    style=" color: #1a9ad1;
                         font-family: Lato;
                         font-weight: Bold;
                         font-size: 32px;
                         opacity: 1;">
-                        Menu
-                    </span>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-end">
-                <div class="col-4">
-                    <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
-                        Cart
-                    </a>
-                    <button class="btn btn-primary top-button" style="">
-                        Delivery
-                    </button>
-                </div>
+                    Menu
+                </span>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                @if (session()->has('message'))
-                    <?php echo session()->get('message'); ?>
-                @endif
+        <div class="row d-flex justify-content-end">
+            <div class="col-4">
+                <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
+                    Cart
+                </a>
+                <button class="btn btn-primary top-button mt-2" style="">
+                    Delivery
+                </button>
             </div>
-            <div class="card-body">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <div class="rows">
-                            <div class="col-3">
-                                <span class="fresh"
-                                    style="
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            @if (session()->has('message'))
+                <?php echo session()->get('message'); ?>
+            @endif
+        </div>
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <div class="col-8">
+                    <div class="rows">
+                        <div class="col-3">
+                            <span class="fresh"
+                                style="
                                     color: #1a9ad1;
                                     font-family: Lato;
                                     font-weight: Bold;
                                     opacity: 1;">
-                                    Meals
-                                </span>
-                            </div>
-                            <div class="col-6">
-                                <select class="form-control" name="meals" id="meals">
-                                    <option value="">Select ...</option>
-                                    <option value="breakfast">Break fast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
-                                </select>
-                            </div>
+                                Meals
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" name="meals" id="meals">
+                                <option value="">Select ...</option>
+                                <option value="breakfast">Break fast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex">
+            </div>
+            <div class="row d-flex">
 
-                    @foreach ($foods as $food)
-                        <div class="col-6 mt-2">
-                            <div class="rows">
-                                <div class="col-4">
-                                    <img class="food-show" src="{{ asset($food->image) }}" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <input type="hidden" name="product_id" value="{{ $food->id }}">
-                                    <div class="listing-text fresh">{{ $food->name }}</div>
-                                    <div class="listing-text fresh">{{ $food->price }}</div>
-                                    <a href="{{ route('add-to-cart', ['id' => $food->id]) }}"
-                                        class="btn-cart btn btn-primary fresh">Add
-                                        To
-                                        Cart</a>
-                                </div>
+                @foreach ($foods as $food)
+                    <div class="col-6 mt-2">
+                        <div class="rows">
+                            <div class="col-4">
+                                <img class="food-show" src="{{ asset($food->image) }}" alt="">
+                            </div>
+                            <div class="col-8">
+                                <input type="hidden" name="product_id" value="{{ $food->id }}">
+                                <div class="listing-text fresh">{{ $food->name }}</div>
+                                <div class="listing-text fresh">{{ $food->price }}</div>
+                                <a href="{{ route('add-to-cart', ['id' => $food->id]) }}"
+                                    class="btn-cart btn btn-primary fresh">Add
+                                    To
+                                    Cart</a>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-        <div class="card mt-5" style="margin-bottom: 0%">
+    </div>
+    {{-- <div class="card mt-5" style="margin-bottom: 0%">
+        <div class="card-body"> --}}
+    <div class="row mt-1 d-flex justify-content-center">
+        <div class="col-6">
             <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                    <div class="rows d-flex justify-content-center">
-                        <button class="btn btn-primary" style="">
-                            Menu
-                        </button>
-                    </div>
-                    <div class="rows d-flex justify-content-center">
-                        <button class="btn btn-primary top-button" style="">
-                            Set Location
-                        </button>
-                    </div>
-                </div>
+                <button class="btn btn-primary" style="">
+                    Menu
+                </button>
             </div>
-            <div class="row d-flex justify-content-center">
-
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Track Your Order
+            <div class="row mt-2 d-flex justify-content-center">
+                <button class="btn btn-primary top-button" style="">
+                    Set Location
                 </button>
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Give Feedback
-                </button>
-
             </div>
         </div>
-    </body>
+    </div>
+    <div class="row mt-1 d-flex justify-content-center">
+
+        <button class="col-4 btn btn-primary top-button" style="">
+            Track Your Order
+        </button>
+        <button class="col-4 btn btn-primary top-button" style="">
+            Give Feedback
+        </button>
+
+    </div>
+    {{-- </div>
+    </div> --}}
     <script type="text/javascript">
         document.onreadystatechange = function() {
             if (document.readyState == 'complete') {
@@ -136,7 +128,6 @@
         }
     </script>
 
-    </html>
     <style>
         .control-label {
             color: #1a9ad1
