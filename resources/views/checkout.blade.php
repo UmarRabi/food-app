@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="row row card">
+    <div class="row">
         <div class="card-body">
             <div class="row d-flex justify-content-center">
                 <div class="col-8">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="row card">
+    <div class="row">
         <div class="card-body">
             <?php $total = 0; ?>
             @foreach ($carts as $cart)
@@ -69,7 +69,7 @@
             @endforeach
         </div>
     </div>
-    <div class="row card">
+    <div class="row">
         <div class="card-body">
             <div class="row">
                 <h3 class="order_summary mobile-text">Order Summary</h3>
@@ -113,7 +113,7 @@
             </div>
         </div>
     </div>
-    <div class="row card">
+    <div class="row d-flex justify-content-center">
         <div class="card-body">
             <div class="row">
                 <h3 class="order_summary mobile-text">Bank Details</h3>
@@ -171,7 +171,7 @@
             </div>
         </div>
     </div>
-    <div class="row card mt-5" style="margin-bottom: 0%">
+    <div class="row mt-5" style="margin-bottom: 0%">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="rows d-flex justify-content-center">

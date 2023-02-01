@@ -21,38 +21,61 @@
         </div>
     </div>
 
-    <div class="card" style="position: absolute; margin-top:50%">
-        <div class="card-body">
-            {{-- <div class="row">
+    {{-- <div class="" style="position: absolute; margin-top:50%"> --}}
+    <div class="card-body">
+        {{-- <div class="row">
                     <h4>Breakfast</h4>
                 </div> --}}
-            @if (count($carts))
-                @foreach ($carts as $cart)
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-8 mt-2">
-                            <div class="rows">
-                                <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
-                                <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
-                                </div>
-                                <div class="col-4">
-                                    <img src="{{ asset($cart->food->image) }}" alt=""
-                                        style="width: 40px;height:40px;">
-                                </div>
+        @if (count($carts))
+            @foreach ($carts as $cart)
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8 mt-2">
+                        <div class="row">
+                            <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                            <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
+                            </div>
+                            <div class="col-4">
+                                <img src="{{ asset($cart->food->image) }}" alt="" style="width: 40px;height:40px;">
                             </div>
                         </div>
                     </div>
-                @endforeach
-            @else
-                <div class="row">
-                    <span>
-                        You don't have any item in your cart
-                    </span>
                 </div>
-            @endif
+            @endforeach
+        @else
+            <div class="row">
+                <span>
+                    You don't have any item in your cart
+                </span>
+            </div>
+        @endif
 
+    </div>
+    {{-- </div> --}}
+    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
+        <div class="col-6">
+            <div class="row d-flex justify-content-center">
+                <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
+                    Checkout
+                </a>
+            </div>
+            <div class="row mt-2 d-flex justify-content-center">
+                <button class="btn btn-primary top-button" style="">
+                    Set Location
+                </button>
+            </div>
         </div>
     </div>
-    <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
+    <div class="row container mt-1 d-flex justify-content-center" style="width: 100%">
+
+        <button class="col-5 btn btn-primary top-button" style="">
+            Track Your Order
+        </button>
+        <button class="col-5 btn btn-primary top-button" style="">
+            Give Feedback
+        </button>
+
+    </div>
+    {{-- <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="rows d-flex justify-content-center">
@@ -77,7 +100,7 @@
             </button>
 
         </div>
-    </div>
+    </div> --}}
     <style>
         .control-label {
             color: #1a9ad1

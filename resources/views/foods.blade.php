@@ -1,20 +1,18 @@
 @extends('layouts.white')
 @section('content')
-    <div class="row">
+    <div class="container">
         @include('_partials.topbar-blue')
         <div class="row mt-3">
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-8 d-flex justify-content-start">
                 <span
                     style=" color: #1a9ad1;
                         font-family: Lato;
                         font-weight: Bold;
-                        font-size: 32px;
+                        font-size: 12px;
                         opacity: 1;">
                     Menu
                 </span>
             </div>
-        </div>
-        <div class="row d-flex justify-content-end">
             <div class="col-4">
                 <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
                     Cart
@@ -34,7 +32,7 @@
         <div class="card-body">
             <div class="row d-flex justify-content-center">
                 <div class="col-8">
-                    <div class="rows">
+                    <div class="row">
                         <div class="col-3">
                             <span class="fresh"
                                 style="
@@ -60,16 +58,16 @@
 
                 @foreach ($foods as $food)
                     <div class="col-6 mt-2">
-                        <div class="rows">
-                            <div class="col-4">
-                                <img class="food-show" src="{{ asset($food->image) }}" alt="">
+                        <div class="row">
+                            <div class="col-5 col-sm43">
+                                <img class="" src="{{ asset($food->image) }}" alt="">
                             </div>
-                            <div class="col-8">
+                            <div class="col-7">
                                 <input type="hidden" name="product_id" value="{{ $food->id }}">
-                                <div class="listing-text fresh">{{ $food->name }}</div>
-                                <div class="listing-text fresh">{{ $food->price }}</div>
+                                <div>{{ $food->name }}</div>
+                                <div>{{ $food->price }}</div>
                                 <a href="{{ route('add-to-cart', ['id' => $food->id]) }}"
-                                    class="btn-cart btn btn-primary fresh">Add
+                                    class="btn-cart btn btn-primary">Add
                                     To
                                     Cart</a>
                             </div>
@@ -81,7 +79,7 @@
     </div>
     {{-- <div class="card mt-5" style="margin-bottom: 0%">
         <div class="card-body"> --}}
-    <div class="row mt-1 d-flex justify-content-center">
+    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
         <div class="col-6">
             <div class="row d-flex justify-content-center">
                 <button class="btn btn-primary" style="">
@@ -95,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-1 d-flex justify-content-center">
+    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
 
         <button class="col-4 btn btn-primary top-button" style="">
             Track Your Order
@@ -164,7 +162,8 @@
         .top-button {
             border-style: solid 2px #1a9ad1;
             background: white;
-            color: #1a9ad1
+            color: #1a9ad1;
+            width: inherit;
         }
 
         .v19_82 {
