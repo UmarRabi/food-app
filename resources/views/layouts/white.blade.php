@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-white ">
-    <div class="row my-3">
+    <div class="row my-3 padding-mobile">
         @yield('content')
     </div>
 </body>

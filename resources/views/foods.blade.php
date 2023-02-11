@@ -2,8 +2,8 @@
 @section('content')
     <div class="container">
         @include('_partials.topbar-blue')
-        <div class="row mt-3">
-            <div class="col-8 d-flex justify-content-start">
+        <div class="d-flex mt-3 justify-content-center">
+            <div class="col-8">
                 <span
                     style=" color: #1a9ad1;
                         font-family: Lato;
@@ -23,14 +23,14 @@
             </div>
         </div>
     </div>
-    <div class="card">
+    <div class="card container" style="background: transparent !important; width:100%">
         <div class="card-header">
             @if (session()->has('message'))
                 <?php echo session()->get('message'); ?>
             @endif
         </div>
         <div class="card-body">
-            <div class="row d-flex justify-content-center">
+            <div class="container d-flex justify-content-center">
                 <div class="col-8">
                     <div class="row">
                         <div class="col-3">
@@ -54,21 +54,19 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex">
+            <div class="row">
 
                 @foreach ($foods as $food)
                     <div class="col-6 mt-2">
                         <div class="row">
                             <div class="col-5 col-sm43">
-                                <img class="" src="{{ asset($food->image) }}" alt="">
+                                <img class="img" src="{{ asset($food->image) }}" alt="">
                             </div>
                             <div class="col-7">
                                 <input type="hidden" name="product_id" value="{{ $food->id }}">
                                 <div>{{ $food->name }}</div>
                                 <div>{{ $food->price }}</div>
-                                <a href="{{ route('add-to-cart', ['id' => $food->id]) }}"
-                                    class="btn-cart btn btn-primary">Add
-                                    To
+                                <a href="{{ route('add-to-cart', ['id' => $food->id]) }}" class="btn-cart btn btn-primary">+
                                     Cart</a>
                             </div>
                         </div>
@@ -79,7 +77,7 @@
     </div>
     {{-- <div class="card mt-5" style="margin-bottom: 0%">
         <div class="card-body"> --}}
-    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
+    <div class="d-flex justify-content-center" style="width: 100%">
         <div class="col-6">
             <div class="row d-flex justify-content-center">
                 <button class="btn btn-primary" style="">
@@ -93,7 +91,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
+    <div class="mt-1 d-flex justify-content-center" style="width: 100%">
 
         <button class="col-4 btn btn-primary top-button" style="">
             Track Your Order

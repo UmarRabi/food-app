@@ -6,7 +6,7 @@
 </head>
 
 <body class="">
-    <div class="row bg-blue">
+    <div class="row bg-blue padding-mobile">
         @yield('content')
     </div>
 </body>
