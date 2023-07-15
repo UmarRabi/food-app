@@ -12,42 +12,6 @@
 
         </div>
     </div>
-
-    <div class="row">
-        <div class="card-body">
-            <div class="row d-flex justify-content-center">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="listing-blue"></div>
-                        </div>
-                        <div class="col-4">
-                            {{-- <button class="btn btn-primary">
-                                    Drinks
-                                </button> --}}
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="listing-blue"></div>
-                        </div>
-                        <div class="col-4">
-                            {{-- <button class="btn btn-primary">
-                                    Drinks
-                                </button> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="card-body">
             <?php $total = 0; ?>
@@ -114,52 +78,10 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="card-body">
-            <div class="row">
+        <div class="card mt-2" style="margin-bottom: 0%">
+            <div class="row d-flex justify-content-center">
                 <h3 class="order_summary mobile-text">Bank Details</h3>
             </div>
-            {{-- <div class="row">
-                    <h5>Payment Options</h5>
-                    <div class="col-4">
-                        <button class="btn btn-primary">Card</button>
-                    </div>
-                    <div class="col-4">
-                        <button class="btn btn-primary">PayPal</button>
-                    </div>
-                    <div class="col-4">
-                        <button class="btn btn-primary">Transfer</button>
-                    </div>
-                </div> --}}
-
-            {{-- <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Name</span>
-                            <div class="col-6 top-button" style="">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Country</span>
-                            <div class="col-6 top-button" style="">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Address</span>
-                            <div class="col-6 top-button" style="">
-
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-        </div>
-        <div class="card mt-5" style="margin-bottom: 0%">
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <div class="rows d-flex justify-content-center">
@@ -171,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5" style="margin-bottom: 0%">
+    <div class="row mt-3" style="margin-bottom: 0%">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="rows d-flex justify-content-center">

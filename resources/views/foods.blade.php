@@ -23,17 +23,18 @@
             </div>
         </div>
     </div>
-    <div class="card container" style="background: transparent !important; width:100%">
-        <div class="card-header">
-            @if (session()->has('message'))
+    <div class="card container" style="">
+
+        @if (session()->has('message'))
+            <div class="card-header">
                 <?php echo session()->get('message'); ?>
-            @endif
-        </div>
+            </div>
+        @endif
         <div class="card-body">
             <div class="container d-flex justify-content-center">
-                <div class="col-8">
+                <div class="col-10">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-5">
                             <span class="fresh"
                                 style="
                                     color: #1a9ad1;
@@ -43,7 +44,7 @@
                                 Meals
                             </span>
                         </div>
-                        <div class="col-6">
+                        <div class="col-7">
                             <select class="form-control" name="meals" id="meals">
                                 <option value="">Select ...</option>
                                 <option value="breakfast">Break fast</option>
@@ -54,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="">
 
                 @foreach ($foods as $food)
                     <div class="col-6 mt-2">

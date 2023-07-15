@@ -322,6 +322,16 @@ On screens that are 600px wide or less, make the columns stack on top of each ot
     width: 50px;
 }
 
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
 @media only screen and (max-width: 500px) {
     .padding-moblie {
         padding-right: 30px !important;

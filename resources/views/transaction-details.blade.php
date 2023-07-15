@@ -10,21 +10,10 @@
     <body style="height:100vh">
         <div class="v19_81">
             @include('_partials.topbar-white')
-            <div class="row mt-3">
-                <div class="col-8">
-
-                </div>
-                <div class="col-4">
-                    {{-- <button class="btn btn-primary top-button" style="">
-                        View Cart
-                    </button> --}}
-                </div>
-            </div>
             <div class="row d-flex justify-content-center">
                 <span class="menu-label">
                     Order Details
                 </span>
-
             </div>
         </div>
 
@@ -37,26 +26,7 @@
                                 <div class="listing-blue"></div>
                             </div>
                             <div class="col-4">
-                                {{-- <button class="btn btn-primary">
-                                    Drinks
-                                </button> --}}
-                            </div>
-                        </div>
 
-
-                    </div>
-
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="listing-blue"></div>
-                            </div>
-                            <div class="col-4">
-                                {{-- <button class="btn btn-primary">
-                                    Drinks
-                                </button> --}}
                             </div>
                         </div>
                     </div>
@@ -66,20 +36,20 @@
         <div class="card">
             <div class="card-body">
                 <?php $total = 0; ?>
-                @foreach ($transaction->transactionCarts as $transactionCart)
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-8">
+                <div class="row justify-content-center">
+                    @foreach ($transaction->transactionCarts as $transactionCart)
+                        <div class="col-12">
                             <div class="rows">
-                                <div class="list-label col-6">{{ $transactionCart->cart->food->name }} </div>
+                                <div class="list-label col-4 ml-5">{{ $transactionCart->cart->food->name }} </div>
                                 <div class="col-6">
                                     <img src="{{ asset($transactionCart->cart->food->image) }}" alt=""
                                         style="width: 40px;height:40px;">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php $total = $total + $transactionCart->cart->food->price * $transactionCart->cart->quantity; ?>
-                @endforeach
+                        <?php $total = $total + $transactionCart->cart->food->price * $transactionCart->cart->quantity; ?>
+                    @endforeach
+                </div>
             </div>
         </div>
         <div class="card">
@@ -89,37 +59,37 @@
                 </div>
 
                 <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Subtotal</span>
-                            <div class="col-4 top-button" style="">
+                    <div class="col-12">
+                        <div class="row list-label"><span class="col-5">Subtotal</span>
+                            <div class="col-5 top-button" style="">
                                 {{ $total }}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">VAT</span>
-                            <div class="col-4 top-button" style="">
+                    <div class="col-12">
+                        <div class="row list-label"><span class="col-5">VAT</span>
+                            <div class="col-5 top-button" style="">
                                 0.00
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Total</span>
-                            <div class="col-4 top-button" style="">
+                    <div class="col-12">
+                        <div class="row list-label"><span class="col-5">Total</span>
+                            <div class="col-5 top-button" style="">
                                 {{ $total }}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
-                    <div class="col-8">
-                        <div class="row list-label"><span class="col-2">Type</span>
-                            <div class="col-4 top-button" style="">
-                                {{ $transaction->order_type  }}
+                    <div class="col-12">
+                        <div class="row list-label"><span class="col-5">Type</span>
+                            <div class="col-5 top-button" style="">
+                                {{ $transaction->order_type }}
                             </div>
                         </div>
                     </div>
@@ -132,7 +102,7 @@
                     <h3 class="order_summary">Transaction Status</h3>
                 </div>
             </div>
-            <div class="card mt-5" style="margin-bottom: 0%">
+            <div class="card" style="margin-bottom: 0%">
                 <div class="row d-flex justify-content-center">
                     <div class="col-6">
                         <div class="rows d-flex justify-content-center">
@@ -142,29 +112,62 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <h3 class="order_summary">Delivery Status</h3>
+                </div>
+            </div>
+            <div class="card" style="margin-bottom: 0%">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <div class="rows d-flex justify-content-center">
+                            {{ ucfirst($transaction->delivery_status) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card mt-5" style="margin-bottom: 0%">
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <div class="rows d-flex justify-content-center">
-                        <button class="btn btn-primary" style="">
-                            Checkout
-                        </button>
-                    </div>
-                    <div class="rows d-flex justify-content-center">
-                        <button class="btn btn-primary top-button" style="">
-                            Set Location
-                        </button>
-                    </div>
+                    @if (Auth::user()->type == 1)
+                        <div class="rows d-flex justify-content-center">
+                            <form action="{{ route('order.update', ['id' => $transaction->id]) }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <select required class="form-control" name="delivery_status" id="">
+                                        <option value="">Select .....</option>
+                                        <option value="dishing">Dishing</option>
+                                        <option value="packaging">Packaging</option>
+                                        <option value="served">Served</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary" style="">
+                                        &nbsp;&nbsp; Update&nbsp;&nbsp;
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="rows d-flex justify-content-center">
+                            <button class="btn btn-primary top-button" style="">
+                                Set Location
+                            </button>
+                        </div>
+                    @endif
+
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
 
-                <button class="col-4 btn btn-primary top-button" style="">
+                {{-- <button class="col-4 btn btn-primary top-button" style="">
                     Track Your Order
                 </button>
                 <button class="col-4 btn btn-primary top-button" style="">
                     Give Feedback
-                </button>
+                </button> --}}
 
             </div>
         </div>
@@ -188,6 +191,10 @@
 
         * {
             box-sizing: border-box;
+        }
+
+        .card {
+            width: 100%;
         }
 
         body {

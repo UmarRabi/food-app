@@ -1,107 +1,79 @@
 @extends('layouts.white')
 @section('content')
-
     <div class="v19_81">
         @include('_partials.topbar-white')
-        <div class="row mt-3">
-            <div class="col-8">
-
-            </div>
-            <div class="col-4">
-                {{-- <button class="btn btn-primary top-button" style="">
-                        View Cart
-                    </button> --}}
-            </div>
-        </div>
         <div class="row d-flex justify-content-center">
-            <span class="menu-label mobile-text">
-                My Carts
+            <span class="menu-label">
+                Orders
             </span>
-
         </div>
     </div>
-
-    {{-- <div class="" style="position: absolute; margin-top:50%"> --}}
-    <div class="card-body">
-        {{-- <div class="row">
-                    <h4>Breakfast</h4>
-                </div> --}}
-        @if (count($carts))
-            @foreach ($carts as $cart)
-                <div class="row d-flex justify-content-center">
-                    <div class="col-sm-12 mt-2" style="width: 90% !important">
-                        <div class="row">
-                            <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
-                            <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
-                            </div>
-                            <div class="col-4">
-                                <img src="{{ asset($cart->food->image) }}" alt=""
-                                    style="width: fit-content;height:40px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <div class="row">
-                <span>
-                    You don't have any item in your cart
-                </span>
-            </div>
-        @endif
-
-    </div>
-    {{-- </div> --}}
-    <div class="row mt-1 d-flex justify-content-center" style="width: 100%">
-        <div class="col-6">
-            <div class="row d-flex justify-content-center">
-                <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
-                    Checkout
-                </a>
-            </div>
-            <div class="row mt-2 d-flex justify-content-center">
-                <button class="btn btn-primary top-button" style="">
-                    Set Location
-                </button>
-            </div>
+    <div class="card">
+        <div class="card-header">Processing</div>
+        <div class="card-body d-flex justify-content-center" style="overflow: scroll">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="mobile-text">amount</th>
+                        <th class="mobile-text" style="width: 100px !important">reference</th>
+                        <th>Order <br>Status</th>
+                        <th>Payment Status</th>
+                        <th class="mobile-text">Date</th>
+                        <th class="mobile-text">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $order)
+                        <tr>
+                            <td class="mobile-text">{{ $order->total }}</td>
+                            <td class="mobile-text">{{ $order->reference }}</td>
+                            <td class="mobile-text">{{ $order->delivery_status }}</td>
+                            <td class="mobile-text">{{ $order->status }}</td>
+                            <td class="mobile-text">{{ $order->created_at }}</td>
+                            {{-- <td>{{ $transaction->channel }}</td> --}}
+                            <td>
+                                <a class="btn btn-primary mobile-text"
+                                    href="{{ route('transaction', ['id' => $order->id]) }}">View</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="row container mt-1 d-flex justify-content-center" style="width: 100%">
-
-        <button class="col-5 btn btn-primary top-button" style="">
-            Track Your Order
-        </button>
-        <button class="col-5 btn btn-primary top-button" style="">
-            Give Feedback
-        </button>
-
+    <div class="card">
+        <div class="card-header">Processed</div>
+        <div class="card-body" style="overflow: scroll">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="mobile-text">amount</th>
+                        <th class="mobile-text" style="width: 100px !important">reference</th>
+                        <th>Order <br>Status</th>
+                        <th>Payment Status</th>
+                        <th class="mobile-text">Date</th>
+                        <th class="mobile-text">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($processed as $pro)
+                        <tr>
+                            <td class="mobile-text">{{ $pro->total }}</td>
+                            <td class="mobile-text">{{ $pro->reference }}</td>
+                            <td class="mobile-text">{{ $pro->delivery_status }}</td>
+                            <td class="mobile-text">{{ $pro->status }}</td>
+                            <td class="mobile-text">{{ $pro->created_at }}</td>
+                            {{-- <td>{{ $transaction->channel }}</td> --}}
+                            <td>
+                                <a class="btn btn-primary mobile-text"
+                                    href="{{ route('transaction', ['id' => $pro->id]) }}">View</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-    {{-- <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <div class="rows d-flex justify-content-center">
-                    <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
-                        Checkout
-                    </a>
-                </div>
-                <div class="rows d-flex justify-content-center">
-                    <button class="btn btn-primary top-button" style="">
-                        Set Location
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-
-            <button class="col-4 btn btn-primary top-button" style="">
-                Track Your Order
-            </button>
-            <button class="col-4 btn btn-primary top-button" style="">
-                Give Feedback
-            </button>
-
-        </div>
-    </div> --}}
     <style>
         .control-label {
             color: #1a9ad1
@@ -126,7 +98,7 @@
 
         .v19_81 {
             width: 100%;
-            height: 30%;
+            height: 200px;
             background: #1a9ad1;
             ;
             opacity: 1;

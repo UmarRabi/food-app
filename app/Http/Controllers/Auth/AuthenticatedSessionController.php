@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
+        if (Auth::user()->type == 1) return redirect()->route('kitchen');
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

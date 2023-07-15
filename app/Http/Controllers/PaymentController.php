@@ -25,7 +25,7 @@ class PaymentController extends Controller
             'Authorization' => 'Bearer sk_test_ce28cce13c523f324fa3ecf7ee5fae6bae821f6f',
             'content-Type' => 'application/json'
         ])->post('https://api.paystack.co/transaction/initialize', [
-            'email' => $user->email,
+            'email' => 'tipson664@gmail.com',
             'amount' => $total * 100,
             'callback_url' => 'http://localhost:8000/users/process',
             'key' => 'sk_test_ce28cce13c523f324fa3ecf7ee5fae6bae821f6f',
@@ -43,6 +43,7 @@ class PaymentController extends Controller
             $transaction->save();
             return redirect($initiate['data']['authorization_url']);
         }
+        return $initiate;
     }
 
     public function process(Request $request)
@@ -88,5 +89,22 @@ class PaymentController extends Controller
         $user = Auth::user();
         $transaction = Transactions::with('transactionCarts', 'transactionCarts.cart')->where('id', $id)->first();
         return view('transaction-details', compact('transaction'));
+    }
+
+    public function kitchenOrders()
+    {
+        $orders = Transactions::where('delivery_status', '!=', 'processed')->get();
+        $processed = Transactions::where('delivery_status', 'processed')->get();
+        return view('kichen.order')
+            ->with('orders', $orders)
+            ->with('processed', $processed);
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Transactions::where("id", $id)->first();
+        $order->delivery_status = $request->delivery_status;
+        $order->save();
+        return back();
     }
 }

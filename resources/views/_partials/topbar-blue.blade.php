@@ -14,7 +14,7 @@
            </div>
        </div>
    </div>
-   <div class="container row mt-5">
+   <div class="container row mt-3">
        <div class="col-6">
            <a href="{{ route('dashboard') }}">
                <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="blue"

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card">
-        <div class="crad-body">
+        <div class="card-body" style="overflow: scroll">
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>

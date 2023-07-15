@@ -24,16 +24,21 @@
     }
 </style>
 @section('content')
-    <div class="row d-flex justify-content-center">
+    {{-- <div class="row d-flex justify-content-center">
         <span style="margin-top: 20%">
             <img src="{{ asset('images/Welcome To.png') }}" alt="">
         </span>
-    </div>
+    </div> --}}
     <div class="row d-flex justify-content-center">
-        <div style="margin-top: 10%; width:250px; text-align:center" class="fresh">ORDAAR</div>
-        <div class="row d-flex justify-content-center" style="margin-top: 30%">
+        <div style="margin-top: 5%; width:250px; text-align:center" class="fresh">ORDAAR <br />Kitchen</div>
+        <div class="row d-flex justify-content-center" style="margin-top: 0%">
             <a href="{{ route('continue') }}" class="btn sub-tag">
-                Order Online
+                Menu
+            </a>
+        </div>
+        <div class="row d-flex justify-content-center" style="margin-top: 0%">
+            <a href="{{ route('kitchen.orders') }}" class="btn sub-tag">
+                Orders
             </a>
         </div>
     </div>

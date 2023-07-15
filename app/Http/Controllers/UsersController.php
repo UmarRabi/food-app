@@ -136,4 +136,9 @@ class UsersController extends Controller
         $carts = Carts::with('food')->where('user_id', Auth::user()->id)->where('status', false)->get();
         return view('checkout', compact('carts'));
     }
+
+    public function kitchen()
+    {
+        return view('kichen.index');
+    }
 }
