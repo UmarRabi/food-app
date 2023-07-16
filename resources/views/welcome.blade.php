@@ -25,13 +25,13 @@
 </style>
 @section('content')
     <div class="row d-flex justify-content-center">
-        <span style="margin-top: 20%">
+        <span style="margin-top: 10%">
             <img src="{{ asset('images/Welcome To.png') }}" alt="">
         </span>
     </div>
     <div class="row d-flex justify-content-center">
         <div style="margin-top: 10%; width:250px; text-align:center" class="fresh">ORDAAR</div>
-        <div class="row d-flex justify-content-center" style="margin-top: 30%">
+        <div class="row d-flex justify-content-center">
             <a href="{{ route('continue') }}" class="btn sub-tag">
                 Order Online
             </a>

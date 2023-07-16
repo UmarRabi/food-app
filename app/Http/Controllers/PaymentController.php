@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carts;
+use App\Models\Foods;
 use App\Models\TransactionCarts;
 use App\Models\Transactions;
 use Illuminate\Support\Facades\Auth;
@@ -106,5 +107,41 @@ class PaymentController extends Controller
         $order->delivery_status = $request->delivery_status;
         $order->save();
         return back();
+    }
+
+    public function foodSave(Request $request)
+    {
+        $fileName = "";
+        // return $request;
+        if ($request->hasFile('image')) {
+            $fileWithExtension = $request->file('image')->getClientOriginalName(); //Filename with extension
+            $myFileName = pathinfo($fileWithExtension, PATHINFO_FILENAME); //extract only the filename without extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileName = $myFileName . '_' . time() . '.' . $extension; //filename
+            $uploadPath = 'public/images';
+            $path = $request->file('image')->storePubliclyAs($uploadPath, $fileName);
+        }
+        $food = $request->id ?  Foods::where('id', $request->id)->first() : new Foods();
+        $food->name = $request->name;
+        $food->meal = $request->meal;
+        $food->price = $request->price;
+        $food->image = "images/" . $fileName;
+        $food->stocked = $request->stocked;
+        $food->save();
+        return redirect()->route('foods');
+    }
+
+    public function foodForm()
+    {
+        $food = null;
+        return view('kichen.food-form')
+            ->with('food', $food);
+    }
+
+    public function foodEdit($id)
+    {
+        $food = Foods::where('id', $id)->first();
+        return view('kichen.food-form')
+            ->with('food', $food);
     }
 }

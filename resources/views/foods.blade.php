@@ -1,5 +1,10 @@
 @extends('layouts.white')
 @section('content')
+    <style>
+        .card-body {
+            padding: 0px !important;
+        }
+    </style>
     <div class="container">
         @include('_partials.topbar-blue')
         <div class="d-flex mt-3 justify-content-center">
@@ -23,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="card container" style="">
+    <div class="card" style="">
 
         @if (session()->has('message'))
             <div class="card-header">
@@ -78,7 +83,7 @@
     </div>
     {{-- <div class="card mt-5" style="margin-bottom: 0%">
         <div class="card-body"> --}}
-    <div class="d-flex justify-content-center" style="width: 100%">
+    <div class="mt-5 d-flex justify-content-center" style="width: 100%">
         <div class="col-6">
             <div class="row d-flex justify-content-center">
                 <button class="btn btn-primary" style="">

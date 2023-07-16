@@ -49,6 +49,12 @@ Route::prefix('kitchen')->group(function () {
         ->name('kitchen.orders');
     Route::post("/order/{id}", [PaymentController::class, 'updateStatus'])
         ->name('order.update');
+    Route::get("/food", [PaymentController::class, 'foodForm'])
+        ->name('food.form');
+    Route::get("/food/{id}", [PaymentController::class, 'foodEdit'])
+        ->name('food.edit');
+    Route::post("/food", [PaymentController::class, 'foodSave'])
+        ->name('food.save');
 });
 Route::get('/continue', function () {
     return view('continue');

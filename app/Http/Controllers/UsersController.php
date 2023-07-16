@@ -100,6 +100,11 @@ class UsersController extends Controller
 
     public function foods(Request $request)
     {
+        if (Auth::user()->type == 1) {
+            $foods = Foods::get();
+            return view('kichen.foods')
+                ->with('foods', $foods);
+        }
         $foods = "";
         if ($request->query('meal') != null) {
             $foods = Foods::where('meal', $request->query('meal'))->get();
