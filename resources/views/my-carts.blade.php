@@ -26,29 +26,32 @@
         {{-- <div class="row">
                     <h4>Breakfast</h4>
                 </div> --}}
-        @if (count($carts))
-            @foreach ($carts as $cart)
-                <div class="row d-flex justify-content-center">
-                    <div class="col-sm-12 mt-2" style="width: 90% !important">
-                        <div class="row">
-                            <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
-                            <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
-                            </div>
-                            <div class="col-4">
-                                <img src="{{ asset($cart->food->image) }}" alt=""
-                                    style="width: fit-content;height:40px;">
+        <div class="container">
+
+            @if (count($carts))
+                @foreach ($carts as $cart)
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-12 mt-2" style="width: 90% !important">
+                            <div class="row">
+                                <div class="mobile-text list-label col-4">{{ $cart->food->name }} </div>
+                                <div class="mobile-text list-label col-4">{{ $cart->food->price * $cart->quantity }}
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{ asset($cart->food->image) }}" alt=""
+                                        style="width: fit-content;height:40px;">
+                                </div>
                             </div>
                         </div>
                     </div>
+                @endforeach
+            @else
+                <div class="row">
+                    <span>
+                        You don't have any item in your cart
+                    </span>
                 </div>
-            @endforeach
-        @else
-            <div class="row">
-                <span>
-                    You don't have any item in your cart
-                </span>
-            </div>
-        @endif
+            @endif
+        </div>
 
     </div>
     {{-- </div> --}}

@@ -10,10 +10,10 @@
     }
 
     .fresh {
-        color: #fffcfc;
+        color: #fffcfc !important;
         font-family: Lato;
-        font-weight: Bold;
-        font-size: 36px;
+        font-weight: Bold !important;
+        font-size: 36px !important;
         opacity: 1;
     }
 
@@ -31,13 +31,13 @@
     </div> --}}
     <div class="row d-flex justify-content-center">
         <div style="margin-top: 5%; width:250px; text-align:center" class="fresh">ORDAAR <br />Kitchen</div>
-        <div class="row d-flex justify-content-center" style="margin-top: 0%">
-            <a href="{{ route('continue') }}" class="btn sub-tag">
+        <div class="row d-flex justify-content-center fresh" style="margin-top: 0%">
+            <a href="{{ route('foods') }}" class="btn fresh">
                 Menu
             </a>
         </div>
-        <div class="row d-flex justify-content-center" style="margin-top: 0%">
-            <a href="{{ route('kitchen.orders') }}" class="btn sub-tag">
+        <div class="row d-flex justify-content-center fresh" style="margin-top: 0%">
+            <a href="{{ route('kitchen.orders') }}" class="btn fresh">
                 Orders
             </a>
         </div>

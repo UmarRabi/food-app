@@ -1,13 +1,11 @@
 @extends('layouts.white')
+<style>
+
+</style>
 @section('content')
-    <style>
-        .card-body {
-            padding: 0px !important;
-        }
-    </style>
     <div class="container">
         @include('_partials.topbar-blue')
-        <div class="d-flex mt-3 justify-content-center">
+        <div class="container d-flex mt-3 justify-content-center">
             <div class="col-8">
                 <span
                     style=" color: #1a9ad1;
@@ -19,17 +17,23 @@
                 </span>
             </div>
             <div class="col-4">
-                <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
-                    Cart
-                </a>
-                <button class="btn btn-primary top-button mt-2" style="">
-                    Delivery
-                </button>
+                <div class="row">
+                    <a href="{{ route('list-cart-items') }}" class="btn btn-primary top-button" style="">
+                        Cart
+                    </a>
+                </div>
+                {{-- <div class="row">
+                    <button class="btn btn-primary top-button mt-2" style="">
+                        Delivery
+                    </button>
+                </div> --}}
+
+
             </div>
         </div>
     </div>
-    <div class="card" style="">
 
+    <div class="card mx-3" style="">
         @if (session()->has('message'))
             <div class="card-header">
                 <?php echo session()->get('message'); ?>
@@ -60,25 +64,29 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="">
 
-                @foreach ($foods as $food)
-                    <div class="col-6 mt-2">
-                        <div class="row">
-                            <div class="col-5 col-sm43">
-                                <img class="img" src="{{ asset($food->image) }}" alt="">
-                            </div>
-                            <div class="col-7">
-                                <input type="hidden" name="product_id" value="{{ $food->id }}">
-                                <div>{{ $food->name }}</div>
-                                <div>{{ $food->price }}</div>
-                                <a href="{{ route('add-to-cart', ['id' => $food->id]) }}" class="btn-cart btn btn-primary">+
-                                    Cart</a>
-                            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="container row">
+            @foreach ($foods as $food)
+                <div class="col-6 mt-2">
+                    <div class="row">
+                        <div class="col-5">
+                            <img class="img" src="{{ asset('storage/' . $food->image) }}" alt="">
+                        </div>
+                        <div class="col-7">
+                            <input type="hidden" name="product_id" value="{{ $food->id }}">
+                            <div>{{ $food->name }}</div>
+                            <div>{{ $food->price }}</div>
+                            <a style="width: fit-content" href="{{ route('add-to-cart', ['id' => $food->id]) }}"
+                                class="btn-cart btn btn-primary">+
+                                Cart</a>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
     {{-- <div class="card mt-5" style="margin-bottom: 0%">

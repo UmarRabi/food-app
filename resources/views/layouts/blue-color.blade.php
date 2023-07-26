@@ -5,8 +5,8 @@
     @include('layouts.links')
 </head>
 
-<body style="height: 1000px">
-    <div class="row bg-blue-color justify-content-center padding-mobile" style="height: auto !important;">
+<body>
+    <div class="row bg-blue-color justify-content-center" style="min-height: 100vh;">
         @if (session()->get('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
