@@ -408,7 +408,7 @@ body {
     color: #1a9ad1;
     font-family: Lato;
     font-weight: ExtraBold !important;
-    font-size: 24px !important;
+    font-size: 19px !important;
     opacity: 1;
     text-align: center;
 }
@@ -503,6 +503,12 @@ body {
     top: 192px;
     left: 70px;
     overflow: hidden;
+}
+
+
+.delivery-text {
+    font-size: 10px;
+    color: '#1999D0'
 }
 
 /* @media screen and (max-width: 992px) {

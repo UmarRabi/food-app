@@ -24,27 +24,23 @@ Route::prefix('/users')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return redirect()->route('foods');
     })->name('dashboard');
-    Route::get('/foods', [UsersController::class, 'foods'])
-        ->name('foods');
-    Route::get('/cart', [UsersController::class, 'carts'])
-        ->name('list-cart-items');
-    Route::get('/cart/{id}', [UsersController::class, 'cart'])
-        ->name('add-to-cart');
-    Route::get('/checkout', [UsersController::class, 'checkout'])
-        ->name('checkout');
-    Route::get('/process', [PaymentController::class, 'process'])
-        ->name('process');
-    Route::get('/pay', [PaymentController::class, 'initialize'])
-        ->name('initialize');
-    Route::get('/transaction', [PaymentController::class, 'transactions'])
-        ->name('transactions');
-    Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])
-        ->name('transaction');
+    Route::get('/foods', [UsersController::class, 'foods'])->name('foods');
+    Route::get('/cart', [UsersController::class, 'carts'])->name('list-cart-items');
+    Route::get('/cart/{id}', [UsersController::class, 'cart'])->name('add-to-cart');
+    Route::get('/checkout', [UsersController::class, 'checkout'])->name('checkout');
+    Route::get('/process', [PaymentController::class, 'process'])->name('process');
+    Route::get('/pay', [PaymentController::class, 'initialize'])->name('initialize');
+    Route::get('/transaction', [PaymentController::class, 'transactions'])->name('transactions');
+    Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])->name('transaction');
 });
 
 Route::prefix('kitchen')->group(function () {
     Route::get("/", [UsersController::class, 'kitchen'])
         ->name('kitchen');
+    Route::get("/menu", [UsersController::class, 'kitchenMenu'])
+        ->name('kitchen.menu');
+    Route::get("/users", [UsersController::class, 'users'])
+        ->name('kitchen.users');
     Route::get('/orders', [PaymentController::class, 'kitchenOrders'])
         ->name('kitchen.orders');
     Route::post("/order/{id}", [PaymentController::class, 'updateStatus'])

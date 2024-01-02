@@ -118,8 +118,15 @@ class PaymentController extends Controller
             $myFileName = pathinfo($fileWithExtension, PATHINFO_FILENAME); //extract only the filename without extension
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileName = $myFileName . '_' . time() . '.' . $extension; //filename
-            $uploadPath = 'public/images';
-            $path = $request->file('image')->storePubliclyAs($uploadPath, $fileName);
+
+ 
+            $type = $request->image->getClientMimeType();
+            $size = $request->image->getSize();
+
+            $request->image->move(public_path('images'), $fileName);
+
+            // $uploadPath = 'public/images';
+            // $path = $request->file('image')->storePubliclyAs($uploadPath, $fileName);
         }
         $food = $request->id ?  Foods::where('id', $request->id)->first() : new Foods();
         $food->name = $request->name;
@@ -128,7 +135,7 @@ class PaymentController extends Controller
         $food->image = "images/" . $fileName;
         $food->stocked = $request->stocked;
         $food->save();
-        return redirect()->route('foods');
+        return redirect()->route('kitchen.menu');
     }
 
     public function foodForm()

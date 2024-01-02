@@ -19,17 +19,20 @@
     }
 </style>
 @section('content')
+
+<div class="container d-flex justify-content-around" style="width:100%; display:flex; flex: 1; flex-direction: column;">
+
+    <div class="" style="margin: 0 auto;">
+        <img height="40" width="250" style="text-align: center;" src="{{ asset('images/Welcome To.png') }}" alt="">
+
+        <div class="fresh">ORDAAR FRESH</div>
+    </div>
     <div class="row justify-content-center">
-        <div class="mt-5 d-flex justify-content-center col-12">
-            <img style="max-width:40%;max-height:20%;" src="{{ asset('images/Welcome To.png') }}" alt="">
+        <div style="width: 250px;">
+            <a href="{{ route('continue') }}" style="width:220px; height: 50px; border-radius: 20px; background-color: white; color: #1999D0; align-content: center;" class="btn btn-primary">
+                <b>ENTER</b>
+            </a>
         </div>
     </div>
-    <div class="container d-flex justify-content-center">
-        <div style="text-align:center" class="fresh">ORDAAR FRESH</div>
-    </div>
-    <div class="row justify-content-center fresh">
-        <a href="{{ route('continue') }}" class="btn fresh">
-            Order Online
-        </a>
-    </div>
+</div>
 @endsection

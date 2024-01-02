@@ -5,7 +5,7 @@
     @include('layouts.links')
 </head>
 
-<body style="bg-white ">
+<body style="bg-white">
     <div class="row justify-content-center">
         @if (session()->get('message'))
             <div class="alert alert-success">

@@ -9,6 +9,7 @@ use App\Models\Contacts;
 use Illuminate\Http\Request;
 use App\Models\Files;
 use App\Models\Foods;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Auth;
@@ -144,6 +145,25 @@ class UsersController extends Controller
 
     public function kitchen()
     {
-        return view('kichen.index');
+        return view('kichen.dashboard');
+        // return view('kichen.index');
+    }
+
+    public function kitchenMenu()
+    {
+        $foods = Foods::get();
+        // return view('kichen.foods')
+        //     ->with('foods', $foods);
+        return view('kichen.food_menus', compact('foods'));
+        // return view('kichen.index');
+    }
+
+    public function users()
+    {
+        $users = User::get();
+        // return view('kichen.foods')
+        //     ->with('foods', $foods);
+        return view('kichen.users', compact('users'));
+        // return view('kichen.index');
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         {{-- <div class="row"> --}}
-        <img style="width: 100%" src="{{ asset('images/food1.png') }}" alt="">
+        <img style="width: 100%; height: 500px" src="{{ asset('images/ordaar_login_bg.png') }}" alt="">
         {{-- </div> --}}
     </div>
     <a class="row d-flex justify-content-center" href="{{ route('order-type', ['type' => 'delivery']) }}"
@@ -13,7 +13,7 @@
         <div class="col-md-12 col-sm-12 d-flex justify-content-center delivery-text font-weight-bolder">Swift delivery</div>
     </a>
     <a class="row d-flex justify-content-center" href="{{ route('order-type', ['type' => 'checkin']) }}"
-        style="cursor: pointer"">
+        style="cursor: pointer">
         <div class="col-md-12 col-sm-12 d-flex justify-content-center" style="margin-top: 15%">
             <img src="{{ asset('images/swift.svg') }}" alt="Vector1989" class="vector-vector" />
         </div>
