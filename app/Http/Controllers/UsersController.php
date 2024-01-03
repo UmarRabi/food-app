@@ -145,7 +145,11 @@ class UsersController extends Controller
 
     public function kitchen()
     {
-        return view('kichen.dashboard');
+
+        $userCount = User::where('type', '0')->count();
+        $orderCount = Carts::count();
+ 
+        return view('kichen.dashboard', compact('userCount', 'orderCount'));
         // return view('kichen.index');
     }
 

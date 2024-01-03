@@ -254,11 +254,11 @@
                                 </div>
                                 <div>
                                     <img src="{{ asset('images/stats_image.png') }}" alt="" style="width: 80px; margin-bottom: 20px">
-                                    <p>Total customers 3,800</p>
+                                    <h5><b>{{$userCount}}</b>  Customers</h5>
                                 </div>
                                 <div>
                                     <img src="{{ asset('images/stats_image.png') }}" alt="" style="width: 80px; margin-bottom: 20px">
-                                    <p>Total Orders 20,000</p>
+                                    <h5><b>{{$orderCount}}</b> Orders</p>
                                 </div>
                             </div>
 
