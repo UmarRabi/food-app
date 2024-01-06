@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Carts;
 use App\Models\Foods;
 use App\Models\TransactionCarts;
-use App\Models\Transactions;
+use App\Models\Transactions;    
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -34,7 +34,7 @@ class PaymentController extends Controller
         ]);
         //return $initiate;
         if ($initiate['status']) {
-            $transaction = new Transactions();
+            $transaction = new App\Models\Transactions();
             $transaction->total = $total;
             $transaction->user_id = $user->id;
             $transaction->description = 'food purchase';
