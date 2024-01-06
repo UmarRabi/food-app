@@ -28,7 +28,7 @@ class PaymentController extends Controller
         ])->post('https://api.paystack.co/transaction/initialize', [
             'email' => 'tipson664@gmail.com',
             'amount' => $total * 100,
-            'callback_url' => 'http://localhost:8000/users/process',
+            'callback_url' => url('/users/process'),
             'key' => 'sk_test_ce28cce13c523f324fa3ecf7ee5fae6bae821f6f',
             'reference' => uniqid(),
         ]);
