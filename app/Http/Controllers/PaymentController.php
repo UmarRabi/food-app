@@ -34,7 +34,7 @@ class PaymentController extends Controller
         ]);
         //return $initiate;
         if ($initiate['status']) {
-            $transaction = new App\Models\Transactions();
+            $transaction = new Transactions();
             $transaction->total = $total;
             $transaction->user_id = $user->id;
             $transaction->description = 'food purchase';
