@@ -71,6 +71,9 @@ class PaymentController extends Controller
                 }
                 $transaction->status = 'completed';
                 $transaction->save();
+
+                $carts = Carts::where('user_id', Auth::user()->id)->where('status', false)->delete();
+
                 return view('thanks')->with('message', 'Transaction was successfully');
             } else {
                 return view('thanks')->with('message', 'invalid details or transaction already completed');
