@@ -15,7 +15,7 @@
     </div>
     <div class="row d-flex justify-content-center">
         <span class="menu-label mobile-text">
-            My Carts
+            {{$title ?? 'My Cart'}}
         </span>
 
     </div>
@@ -28,47 +28,81 @@
                 </div> --}}
     <div class="container">
 
-        @if (count($carts))
-        @foreach ($carts as $cart)
-        <div class="row d-flex justify-content-center">
-            <div class="col-sm-12 mt-2" style="width: 90% !important">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset($cart->food->image) }}" alt="" style="width: fit-content; width: 150px">
-                    </div>
-                    <div class="mobile-text list-label col-4" style="font-size: 20px;">{{ $cart->food->name }} </div>
-                    <div class="mobile-text list-label col-4">
-                        <h5>{{ $cart->food->price * $cart->quantity }}</h5>
+        @if ($order)
+        <div class="card-body text-center justify-content-center" style="overflow: scroll">
+
+            <h4>Order Reference: <b>{{$order->reference}}</b></h4>
+
+            <div class="col-md-8 offset-2 mt-5">
+
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/track_order_one.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #1999D0; font-weight: bold">Order Received</p>
                     </div>
                 </div>
+
+                @if($order->delivery_status == "preparing" || $order->delivery_status == "processing" || $order->delivery_status == "processed")
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/track_order_two.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #1999D0; font-weight: bold">Order received is being prepared</p>
+                    </div>
+                </div>
+                @else
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/unselected_track_order_two.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #aaa; font-weight: bold">Order received is being prepared</p>
+                    </div>
+                </div>
+                @endif
+
+                @if($order->delivery_status == "processing" || $order->delivery_status == "processed")
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/track_order_three.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #1999D0; font-weight: bold">Order is being proccessed</p>
+                    </div>
+                </div>
+                @else
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/unselected_track_order_three.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #aaa; font-weight: bold">Order is being proccessed</p>
+                    </div>
+                </div>
+                @endif
+
+                @if($order->delivery_status == "processed")
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/track_order_one.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #1999D0; font-weight: bold">Order is Ready</p>
+                    </div>
+                </div>
+                @else
+                <div class="row d-flex" style="margin-bottom: 30px; display: flex; justify-content: center;">
+                    <div style="flex: 1"><img src="{{ asset('images/unselected_track_order_three.png') }}" alt="" style="width: 60px; color: red;"></div>
+                    <div style="flex: 4">
+                        <p style="font-size: 25px; color: #aaa; font-weight: bold">Order is being proccessed</p>
+                    </div>
+                </div>
+                @endif
             </div>
+
         </div>
-        @endforeach
         @else
-        <div class="row">
-            <span>
-                You don't have any item in your cart
-            </span>
+        <div class="row text-center" style="height: 200px; display: flex; justify-content: center; align-items: center;">
+
+            <h5> Order Reference does not exist</h5>
+
         </div>
         @endif
     </div>
 
 </div>
 {{-- </div> --}}
-<div class="row mt-1 d-flex justify-content-center" style="width: 100%">
-    <div class="col-6">
-        <div class="row d-flex justify-content-center">
-            <a href="{{ route('checkout') }}" class="btn btn-primary" style="">
-                Checkout
-            </a>
-        </div>
-        <div class="row mt-2 d-flex justify-content-center">
-            <button class="btn btn-primary top-button" style="">
-                Set Location
-            </button>
-        </div>
-    </div>
-</div>
 @include('_partials.footer_buttons')
 
 {{-- <div class="card" style="margin-bottom: 0%; position: absolute;; bottom:0px">

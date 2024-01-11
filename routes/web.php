@@ -29,12 +29,11 @@ Route::prefix('/users')->middleware('auth')->group(function () {
     Route::get('/cart/{id}', [UsersController::class, 'cart'])->name('add-to-cart');
     Route::get('/checkout', [UsersController::class, 'checkout'])->name('checkout');
     Route::get('/pay', [PaymentController::class, 'initialize'])->name('initialize');
-    Route::get('/transaction', [PaymentController::class, 'transactions'])->name('transactions');
-    Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])->name('transaction');
+    Route::get('/orders', [UsersController::class, 'userOrder'])->name('user.order');
+    Route::get('/track-order/{reference}', [UsersController::class, 'trackOrder'])->name('track.order');
 });
 
 Route::get('users/process', [PaymentController::class, 'process'])->name('process');
-
 
 Route::prefix('kitchen')->group(function () {
     Route::get("/", [UsersController::class, 'kitchen'])
@@ -43,6 +42,9 @@ Route::prefix('kitchen')->group(function () {
         ->name('kitchen.menu');
     Route::get("/users", [UsersController::class, 'users'])
         ->name('kitchen.users');
+    Route::get('/transaction', [PaymentController::class, 'transactions'])->name('transactions');
+    Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])->name('transaction');
+
     Route::get('/orders', [PaymentController::class, 'kitchenOrders'])
         ->name('kitchen.orders');
     Route::post("/order/{id}", [PaymentController::class, 'updateStatus'])

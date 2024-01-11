@@ -44,21 +44,15 @@
         <div class="container d-flex justify-content-center">
             <div class="col-10">
                 <div class="row">
-                    <div class="col-5">
-                        <span class="fresh" style="
-                                    color: #1a9ad1;
-                                    font-family: Lato;
-                                    font-weight: Bold;
-                                    opacity: 1;">
-                            Meals
-                        </span>
-                    </div>
-                    <div class="col-7">
+                    <div class="col-md-6 offset-2">
+                        <label style="font-size: 18px;">Meals</label>
                         <select class="form-control" name="meals" id="meals">
                             <option value="">Select ...</option>
                             <option value="breakfast">Break fast</option>
                             <option value="lunch">Lunch</option>
                             <option value="dinner">Dinner</option>
+                            <option value="drinks">Drinks</option>
+                            <option value="beverage">Beverage</option>
                         </select>
                     </div>
                 </div>
@@ -67,7 +61,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="container">
         <div class="container">
             @foreach ($foods as $food)
@@ -78,8 +72,13 @@
                     </div>
                     <div class="col-7">
                         <input type="hidden" name="product_id" value="{{ $food->id }}">
-                        <div>{{ $food->name }}</div>
-                        <div>{{ $food->price }}</div>
+                        <div>
+                            <h6>{{ $food->name }}</h6>
+                        </div>
+                        <div>
+                            <h6 style="color: #777">&#8358;{{ $food->price }}
+                                <h6>
+                        </div>
                         <a style="width: fit-content" href="{{ route('add-to-cart', ['id' => $food->id]) }}" class="btn-cart btn btn-primary">+
                             Cart</a>
                     </div>
@@ -106,16 +105,9 @@
                 </div>
             </div>
         </div>
-        <div class="mt-1 d-flex justify-content-center container">
 
-            <button class="col-4 btn btn-primary top-button" style="">
-                Track Your Order
-            </button>
-            <button class="col-4 btn btn-primary top-button" style="">
-                Give Feedback
-            </button>
+        @include('_partials.footer_buttons')
 
-        </div>
         {{-- </div>
     </div> --}}
         <script type="text/javascript">

@@ -92,7 +92,7 @@ class PaymentController extends Controller
     {
         $user = Auth::user();
         $transaction = Transactions::with('transactionCarts', 'transactionCarts.cart')->where('id', $id)->first();
-        return view('transaction-details', compact('transaction'));
+        return view('kichen.order_details', compact('transaction'));
     }
 
     public function kitchenOrders()
@@ -109,7 +109,7 @@ class PaymentController extends Controller
         $order = Transactions::where("id", $id)->first();
         $order->delivery_status = $request->delivery_status;
         $order->save();
-        return back();
+        return redirect()->back()->withSuccess("Order updated successfully");
     }
 
     public function foodSave(Request $request)
@@ -133,7 +133,7 @@ class PaymentController extends Controller
         }
         $food = $request->id ?  Foods::where('id', $request->id)->first() : new Foods();
         $food->name = $request->name;
-        $food->meal = $request->meal;
+        $food->meal = $request->meals;
         $food->price = $request->price;
         $food->image = "images/" . $fileName;
         $food->stocked = $request->stocked;

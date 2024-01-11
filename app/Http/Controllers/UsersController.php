@@ -9,6 +9,7 @@ use App\Models\Contacts;
 use Illuminate\Http\Request;
 use App\Models\Files;
 use App\Models\Foods;
+use App\Models\Transactions;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
@@ -137,6 +138,20 @@ class UsersController extends Controller
         return view('my-carts', compact('carts'));
     }
 
+    public function userOrder()
+    {
+        $orders = Transactions::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+        $title = "Track Order";
+        return view('user_orders', compact('orders', 'title'));
+    }
+
+    public function trackOrder(Request $request, $reference)
+    {
+        $order = Transactions::where('reference', $reference)->first();
+        $title = "Track Order";
+        return view('track_order', compact('order', 'title'));
+    }
+
     public function checkout()
     {
         $carts = Carts::with('food')->where('user_id', Auth::user()->id)->where('status', false)->get();
@@ -148,7 +163,7 @@ class UsersController extends Controller
 
         $userCount = User::where('type', '0')->count();
         $orderCount = Carts::count();
- 
+
         return view('kichen.dashboard', compact('userCount', 'orderCount'));
         // return view('kichen.index');
     }

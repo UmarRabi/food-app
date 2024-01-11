@@ -243,12 +243,22 @@
 
                         <div class="col-md-8" style="padding-top: 80px; margin-left:20px; padding-right: 40px; padding-left: 30px; padding-bottom: 80px; justify-content: center;  border-radius: 8px; margin-bottom: 100px; margin-top: 30px">
 
-                        @include('_partials.logout')
+                            @include('_partials.logout')
 
                             <div class="mt-5"></div>
 
 
-                            <h2 class="center"><b>Food Menu</b></h2>
+                            <div class="row" style="justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <p class="center" style="font-size: 25px; font-weight: 600;">Food Menu</p>
+                                </div>
+                                <div style="display: flex; flex: 1; justify-content: flex-end;">
+                                    <a class="btn btn-primary" href="{{route('food.form')}}" style="height: 40px;">
+                                        <center> Add Menu</center>
+                                    </a>
+                                </div>
+
+                            </div>
 
                             <div class="row">
                                 <div class="table mt-5" style="width:100%">

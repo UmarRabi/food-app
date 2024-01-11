@@ -247,52 +247,118 @@
 
                             <div class="mt-5"></div>
 
+                            <h2 class="center"><b>Order Details</b></h2>
+                            <div class="">
+                                <div class="card-body ">
 
-                            <h2 class="center"><b>Food Menu</b></h2>
-                            <div class="card">
-                                <div class="card-body d-flex justify-content-center" style="overflow: scroll">
-                                    <div class="row justify-content-center">
-                                        <form action="{{ route('food.save') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $food ? $food->id : '' }}">
-                                            <div class="form-group">
-                                                <label for="" style="color: #1a9ad1 !important" class="control-label">Name</label>
-                                                <input type="text" value="{{ $food ? $food->name : '' }}" name="name" class="form-control">
+                                    <div class="row">
+                                        <?php $total = 0; ?>
+                                        <div class="row justify-content-center">
+                                            @foreach ($transaction->transactionCarts as $transactionCart)
+                                            <div class="col-12">
+                                                <div class="rows">
+                                                    <div class="list-label col-4 ml-5">{{ $transactionCart->cart->food->name }} </div>
+                                                    <div class="col-6">
+                                                        <img src="{{ asset($transactionCart->cart->food->image) }}" alt="" style="width: 40px;height:40px;">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="" style="color: #1a9ad1 !important" class="control-label">Price</label>
-                                                <input type="text" value="{{ $food ? $food->price : '' }}" name="price" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for=" style=" color: #1a9ad1 !important"" class="control-label">image</label>
-                                                <input type="file" name="image" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" style="color: #1a9ad1 !important" class="control-label">Stoked</label>
-                                                <select name="stocked" id="" class="form-control">
-                                                    <option {{ $food ? ($food->stocked ? 'selected' : '') : '' }} value="1">Stoked</option>
-                                                    <option {{ $food ? (!$food->stocked ? 'selected' : '') : '' }} value="0">Out of Stoke
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" style="color: #1a9ad1 !important" class="control-label">Meal</label>
-                                                <select class="form-control" name="meals" id="meals">
-                                                    <option value="">Select ...</option>
-                                                    <option value="breakfast">Break fast</option>
-                                                    <option value="lunch">Lunch</option>
-                                                    <option value="dinner">Dinner</option>
-                                                    <option value="drinks">Drinks</option>
-                                                    <option value="beverage">Beverage</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <button class="btn btn-primary">
-                                                    Submit
-                                                </button>
-                                            </div>
-                                        </form>
+                                            <?php $total = $total + $transactionCart->cart->food->price * $transactionCart->cart->quantity; ?>
+                                            @endforeach
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <h3 class="order_summary">Order Summary</h3>
+                                            </div>
+
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <div class="row list-label"><span class="col-5">
+                                                            <h5>Subtotal</h5>
+                                                        </span>
+                                                        <div class="col-5 top-button" style="">
+                                                            <h6> {{ $total }} </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center mt-3">
+                                                <div class="col-12">
+                                                    <div class="row list-label"><span class="col-5">
+                                                            <h6>VAT</h6>
+                                                        </span>
+                                                        <div class="col-5 top-button" style="">
+                                                            <h6> 10.00 </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center mt-3">
+                                                <div class="col-12">
+                                                    <div class="row list-label"><span class="col-5">
+                                                            <h6>Total</h6>
+                                                        </span>
+                                                        <div class="col-5 top-button" style="">
+                                                            <h6> {{ $transaction->total }} </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <h3 class="order_summary">Delivery Status</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="margin-bottom: 0%">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-6">
+                                                    <div class="rows d-flex justify-content-center">
+                                                        {{ ucfirst($transaction->delivery_status) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5" style="margin-bottom: 0%">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-8">
+                                                @if (Auth::user()->type == 1)
+                                                <div class="rows justify-content-center">
+                                                    <form action="{{ route('order.update', ['id' => $transaction->id]) }}" method="POST">
+                                                        @csrf
+                                                        <div class="form-group" style="width: 300px; margin-bottom:20px;">
+                                                        <label>Select Order Status</label>
+                                                            <select required class="form-control col-md-8" name="delivery_status" id="">
+                                                                <option value="">Select .....</option>
+                                                                <option value="preparing">Preparing</option>
+                                                                <option value="processing">Processing</option>
+                                                                <option value="processed">Processed</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button class="btn btn-primary" style="">
+                                                                &nbsp;&nbsp; Update&nbsp;&nbsp;
+                                                            </button>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="rows d-flex justify-content-center">
+                                                    <button class="btn btn-primary top-button" style="">
+                                                        Set Location
+                                                    </button>
+                                                </div>
+                                                @endif
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 

@@ -346,7 +346,6 @@
 @section('content')
 
 <div class="row">
-
     <div class="row" style="width: 100%;">
         <div class="col-md-10 offset-1" style="margin-top: 40px;">
             <!--Card-->
@@ -354,7 +353,6 @@
             <div class="card-body">
                 <!--Card-Title-->
                 <div class="icons text-left">
-
                     @if ($message = Session::get('error'))
                     <div class="col-md-12" role="alert">
                         <div class="alert alert-danger mb-4" role="alert">
@@ -407,7 +405,7 @@
                                         <table id="example" class="table table-striped" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th class="mobile-text">Amount</th>
+                                                    <th class="mobile-text">Amount (&#8358;)</th>
                                                     <th class="mobile-text" style="width: 100px !important">Reference</th>
                                                     <th>Order <br>Status</th>
                                                     <th>Payment Status</th>
@@ -425,7 +423,8 @@
                                                     <td class="mobile-text">{{ $order->created_at }}</td>
                                                     {{-- <td>{{ $transaction->channel }}</td> --}}
                                                     <td>
-                                                        <a class="btn btn-primary mobile-text" href="{{ route('transaction', ['id' => $order->id]) }}">View</a>
+                                                        <a class="btn btn-primary mobile-text" href="{{ route('transaction', ['id' => $order->id]) }}">View Order</a>
+
                                                     </td>
                                                 </tr>
                                                 @endforeach

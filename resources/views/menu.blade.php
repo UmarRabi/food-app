@@ -119,16 +119,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
+            @include('_partials.footer_buttons')
 
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Track Your Order
-                </button>
-                <button class="col-4 btn btn-primary top-button" style="">
-                    Give Feedback
-                </button>
-
-            </div>
         </div>
 
     </body>

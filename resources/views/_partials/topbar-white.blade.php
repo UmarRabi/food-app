@@ -11,7 +11,7 @@
                 </a>
             </div>
 
-            <h4 style="margin-top: 20px; font-size:40px; text-align: center; color: white; font-weight: bold">My Cart</h4>
+            <h4 style="margin-top: 20px; font-size:40px; text-align: center; color: white; font-weight: bold">{{$title ?? 'My Cart'}}</h4>
         </div>
     </div>
 </div>

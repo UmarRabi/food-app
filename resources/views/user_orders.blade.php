@@ -15,7 +15,7 @@
     </div>
     <div class="row d-flex justify-content-center">
         <span class="menu-label mobile-text">
-            My Carts
+            {{$title ?? 'My Cart'}}
         </span>
 
     </div>
@@ -28,22 +28,36 @@
                 </div> --}}
     <div class="container">
 
-        @if (count($carts))
-        @foreach ($carts as $cart)
-        <div class="row d-flex justify-content-center">
-            <div class="col-sm-12 mt-2" style="width: 90% !important">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset($cart->food->image) }}" alt="" style="width: fit-content; width: 150px">
-                    </div>
-                    <div class="mobile-text list-label col-4" style="font-size: 20px;">{{ $cart->food->name }} </div>
-                    <div class="mobile-text list-label col-4">
-                        <h5>{{ $cart->food->price * $cart->quantity }}</h5>
-                    </div>
-                </div>
-            </div>
+        @if (count($orders))
+        <div class="card-body d-flex justify-content-center" style="overflow: scroll">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="mobile-text">Amount (&#8358;)</th>
+                        <th class="mobile-text" style="width: 100px !important">Reference</th>
+                        <th>Order <br>Status</th>
+                        <th>Payment Status</th>
+                        <th class="mobile-text">Date</th>
+                        <th class="mobile-text">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $order)
+                    <tr>
+                        <td class="mobile-text">{{ $order->total }}</td>
+                        <td class="mobile-text">{{ $order->reference }}</td>
+                        <td class="mobile-text">{{ $order->delivery_status }}</td>
+                        <td class="mobile-text">{{ $order->status }}</td>
+                        <td class="mobile-text">{{ $order->created_at }}</td>
+                        {{-- <td>{{ $transaction->channel }}</td> --}}
+                        <td>
+                            <a class="btn btn-primary mobile-text" href="{{ route('track.order', [$order->reference]) }}">Track Order</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        @endforeach
         @else
         <div class="row">
             <span>

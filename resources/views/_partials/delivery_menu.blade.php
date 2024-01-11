@@ -16,11 +16,6 @@
             <h6 class="delivery-menu-text">EDIT MENUS</h6>
         </div>
     </a>
-    <a href="{{route('food.form')}}">
-        <div class="@if(Route::currentRouteName() === 'user.book.delivery_status') active-delivery-menu-item @else delivery-menu-item @endif">
-            <h6 class="delivery-menu-text">ADD MENU</h6>
-        </div>
-    </a>
     <a href="#">
         <div class="@if(Route::currentRouteName() === 'user.book.delivery_history') active-delivery-menu-item @else delivery-menu-item @endif">
             <h6 class="delivery-menu-text">DELETE MENU</h6>
@@ -37,20 +32,20 @@
             <h6 class="delivery-menu-text">CUSTOMERS</h6>
         </div>
     </a>
-    <a href="#">
+    <!-- <a href="#">
         <div class="@if(Route::currentRouteName() === 'user.book.report_feedback') active-delivery-menu-item @else delivery-menu-item @endif">
             <h6 class="delivery-menu-text">WAITERS</h6>
         </div>
-    </a>
-    <div class="delivery-menu-item">
+    </a> -->
+    <!-- <div class="delivery-menu-item">
         <h6 class="delivery-menu-text">KITCHEN</h6>
-    </div>
-    <div class="delivery-menu-item">
+    </div> -->
+    <!-- <div class="delivery-menu-item">
         <h6 class="delivery-menu-text">CHARTS</h6>
-    </div>
-    <div class="delivery-menu-item">
+    </div> -->
+    <!-- <div class="delivery-menu-item">
         <h6 class="delivery-menu-text">TABLES</h6>
-    </div>
+    </div> -->
     <div class="delivery-menu-item">
         <a href="{{route('kitchen.orders')}}">
             <h6 class="delivery-menu-text">ORDER</h6>
