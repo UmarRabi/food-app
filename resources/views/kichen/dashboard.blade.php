@@ -247,14 +247,15 @@
 
                             <div class="mt-5"></div>
 
-                            <div style="flex-direction: row; display:flex; text-align: center; justify-content: space-around;">
+
+                            <div style="width: 80%; margin: auto;">
+                                <canvas id="barChart"></canvas>
+                            </div>
+
+                            <div style="flex-direction: row; display:flex; margin-top: 100px; text-align: center; justify-content: space-around;">
                                 <div>
                                     <img src="{{ asset('images/stats_image.png') }}" alt="" style="width: 80px; margin-bottom: 20px">
-                                    <p>Sales Graph $3.576</p>
-                                </div>
-                                <div>
-                                    <img src="{{ asset('images/stats_image.png') }}" alt="" style="width: 80px; margin-bottom: 20px">
-                                    <h5><b>{{$userCount}}</b>  Customers</h5>
+                                    <h5><b>{{$userCount}}</b> Customers</h5>
                                 </div>
                                 <div>
                                     <img src="{{ asset('images/stats_image.png') }}" alt="" style="width: 80px; margin-bottom: 20px">
@@ -301,5 +302,29 @@
 
 </div>
 
+
+<script>
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @json($data['labels']),
+            datasets: [{
+                label: 'Daily Sales Report',
+                data: @json($data['data']),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 
 @endsection

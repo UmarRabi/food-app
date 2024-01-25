@@ -98,11 +98,7 @@
                         Menu
                     </button>
                 </div>
-                <div class="row mt-2 d-flex justify-content-center">
-                    <button class="btn btn-primary top-button" style="">
-                        Set Location
-                    </button>
-                </div>
+
             </div>
         </div>
 

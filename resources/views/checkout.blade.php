@@ -121,11 +121,6 @@
                     Checkout
                 </button>
             </div>
-            <div class="rows d-flex justify-content-center">
-                <button class="btn btn-primary top-button" style="">
-                    Set Location
-                </button>
-            </div>
         </div>
     </div>
     @include('_partials.footer_buttons')

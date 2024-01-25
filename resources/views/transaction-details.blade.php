@@ -130,7 +130,7 @@
     <div class="card mt-5" style="margin-bottom: 0%">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                @if (Auth::user()->type == 1)
+                @if (Auth::user()->type == 1 || Auth::user()->type == 2)
                 <div class="rows d-flex justify-content-center">
                     <form action="{{ route('order.update', ['id' => $transaction->id]) }}" method="POST">
                         @csrf

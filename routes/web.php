@@ -27,6 +27,7 @@ Route::prefix('/users')->middleware('auth')->group(function () {
     Route::get('/foods', [UsersController::class, 'foods'])->name('foods');
     Route::get('/cart', [UsersController::class, 'carts'])->name('list-cart-items');
     Route::get('/cart/{id}', [UsersController::class, 'cart'])->name('add-to-cart');
+    Route::get('/cart-item-remove/{id}', [UsersController::class, 'removecartItem'])->name('remove-from-cart');
     Route::get('/checkout', [UsersController::class, 'checkout'])->name('checkout');
     Route::get('/pay', [PaymentController::class, 'initialize'])->name('initialize');
     Route::get('/orders', [UsersController::class, 'userOrder'])->name('user.order');

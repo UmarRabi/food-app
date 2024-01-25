@@ -14,6 +14,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
@@ -132,6 +133,23 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'Added to cart successfully');
     }
 
+    public function removecartItem($id)
+    {
+        $cart = Carts::where('food_id', $id)->where('user_id', Auth::user()->id)->where('status', false)->first() ?? new Carts();
+        $cart->food_id = $id;
+        $cart->user_id = Auth::user()->id;
+
+        $newCartValue = $cart->quantity - 1;
+
+        if ($newCartValue > 0) {
+            $cart->quantity = $newCartValue;
+            $cart->save();
+        }else{
+            $cart->delete();
+        }
+        return redirect()->back()->with('message', 'Cart Item updated successfully');
+    }
+
     public function carts()
     {
         $carts = Carts::with('food')->where('user_id', Auth::user()->id)->where('status', false)->get();
@@ -164,7 +182,23 @@ class UsersController extends Controller
         $userCount = User::where('type', '0')->count();
         $orderCount = Carts::count();
 
-        return view('kichen.dashboard', compact('userCount', 'orderCount'));
+        $data = [];
+
+        for ($i = 7; $i > 0; $i--) {
+
+            $adate = date('Y-m-d', strtotime("-$i days"));
+            $data['labels'][] = $adate;
+
+            $amount = Transactions::whereDate('created_at', Carbon::now()->subDays($i))->sum('total');
+
+            $data['data'][] = $amount;
+        }
+
+        // $data['data'][] = [65, 59, 80, 81, 56, 25, 70];
+
+        Log::info($data);
+
+        return view('kichen.dashboard', compact('userCount', 'orderCount', 'data'));
         // return view('kichen.index');
     }
 

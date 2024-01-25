@@ -33,10 +33,13 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12 mt-2" style="width: 90% !important">
                 <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset($cart->food->image) }}" alt="" style="width: fit-content; width: 150px">
+                    <div class="col-6" style=" display: flex; flex-direction:row">
+                        <img src="{{ asset($cart->food->image) }}" alt="" style="width: fit-content; width: 200px">
+                        <span style="font-size: 20px; font-weight:600; margin-left: 30px;">{{ $cart->food->name }}</span>
                     </div>
-                    <div class="mobile-text list-label col-4" style="font-size: 20px;">{{ $cart->food->name }} </div>
+                    <div class="mobile-text list-label col-2" style="font-size: 20px;"><a href="{{ route('add-to-cart', ['id' => $cart->food->id]) }}" class="btn btn-primary">+</a>
+                        {{ $cart->quantity }} <a href="{{ route('remove-from-cart', ['id' => $cart->food->id]) }}" class="btn btn-danger">-</a>
+                    </div>
                     <div class="mobile-text list-label col-4">
                         <h5>{{ $cart->food->price * $cart->quantity }}</h5>
                     </div>

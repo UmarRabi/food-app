@@ -22,16 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::create([
-            'firstname' => "Chef",
-            'lastname' => "Kichen",
-            'phone' => "07001234567",
-            'username' => "kichen",
-            'address' => "Harare street",
-            'postal_code' => "019921",
-            'email' => "kitchen@ordaar.com",
-            'password' => Hash::make("Password@1"),
-            "type" => 1
-        ]);
+
+        // $this->call(class: KichenUserSeeder::class);
+        $this->call(class: AdminUserSeeder::class);
     }
 }
