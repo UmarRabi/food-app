@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Carts;
 use App\Models\Foods;
 use App\Models\TransactionCarts;
-use App\Models\Transactions;    
+use App\Models\Transactions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -97,11 +97,26 @@ class PaymentController extends Controller
 
     public function kitchenOrders()
     {
-        $orders = Transactions::where('delivery_status', '!=', 'processed')->get();
-        $processed = Transactions::where('delivery_status', 'processed')->get();
-        return view('kichen.order')
+        $orders =  TransactionCarts::with(['cart.food', 'transaction'])
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', '=', 'completed')
+                    ->where('delivery_status', '!=', 'processed');
+            })
+            ->get();
+            $allOrders = TransactionCarts::with(['cart.food', 'transaction'])
+            ->orderBy('id', 'desc')
+            ->take(10)
+            ->get();
+        $processed =  TransactionCarts::with(['cart.food', 'transaction'])
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', '=', 'completed')
+                    ->where('delivery_status', '=', 'processed');
+            })
+            ->get();
+        return view('kichen.orders.index')
             ->with('orders', $orders)
-            ->with('processed', $processed);
+            ->with('processed', $processed)
+            ->with('allOrders', $allOrders);
     }
 
     public function updateStatus(Request $request, $id)
@@ -122,7 +137,7 @@ class PaymentController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileName = $myFileName . '_' . time() . '.' . $extension; //filename
 
- 
+
             $type = $request->image->getClientMimeType();
             $size = $request->image->getSize();
 
@@ -153,5 +168,11 @@ class PaymentController extends Controller
         $food = Foods::where('id', $id)->first();
         return view('kichen.food-form')
             ->with('food', $food);
+    }
+
+    public function restaurants()
+    {
+        return view('kichen.restaurants.index')
+            ->with('users', []);
     }
 }

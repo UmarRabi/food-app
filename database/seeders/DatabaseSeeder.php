@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $this->call(class: KichenUserSeeder::class);
-        $this->call(class: AdminUserSeeder::class);
+        $this->call(class: KichenUserSeeder::class);
+        // $this->call(class: AdminUserSeeder::class);
     }
 }

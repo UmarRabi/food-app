@@ -200,7 +200,6 @@
         }
     }
 </style>
-</style>
 @section('content')
 
 <div class="row">
@@ -248,9 +247,9 @@
                             <div class="mt-5"></div>
 
 
-                            <h2 class="center"><b>Food Menu</b></h2>
-                            <div class="card">
-                                <div class="card-body d-flex justify-content-center" style="overflow: scroll">
+                            <h2 class="center d-flex justify-content-center"><b>Food Menu</b></h2>
+                            {{-- <div class="card">
+                                <div class="card-body d-flex justify-content-center" style="overflow: scroll"> --}}
                                     <div class="row justify-content-center">
                                         <form action="{{ route('food.save') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -293,8 +292,8 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                            </div>
+                                {{-- </div>
+                            </div> --}}
 
                         </div>
                     </div>

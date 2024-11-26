@@ -25,7 +25,7 @@
     <div class="" style="margin: 0 auto;">
         <img height="40" width="250" style="text-align: center;" src="{{ asset('images/Welcome To.png') }}" alt="">
 
-        <div class="fresh">ORDAAR FRESH</div>
+        <div class="fresh">BRIGHTSIDE RESTAURANT</div>
     </div>
     <div class="row justify-content-center">
         <div style="width: 250px;">

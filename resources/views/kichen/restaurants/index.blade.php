@@ -254,57 +254,19 @@
 
                                 @include('_partials.logout')
 
-                                <div class="mt-5"></div>
+                                {{-- <div class="mt-5"></div> --}}
 
 
-                                <div class="row" style="justify-content: space-between;">
-                                    <div style="flex: 1;">
-                                        <p class="center" style="font-size: 25px; font-weight: 600;">Food Menu</p>
-                                    </div>
-                                    {{-- <div style="display: flex; flex: 1; justify-content: flex-end;">
-                                    <a class="btn btn-primary" href="{{route('food.form')}}" style="height: 40px;">
-                                        <center> Add Menu</center>
-                                    </a>
-                                </div> --}}
+                                {{-- <h2 class="center"><b>Manage Restaurants</b></h2> --}}
 
-                                </div>
-
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     <div class="table mt-5" style="width:100%">
-                                        @if ($foods->count() > 0)
-                                            <table style="width:100%" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">S/No</th>
-                                                        <th scope="col">Menu Image</th>
-                                                        <th scope="col">Food Name</th>
-                                                        <th scope="col">Meal Type</th>
-                                                        <th scope="col">Price</th>
-                                                        <th scope="col">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    @foreach ($foods as $key => $a)
-                                                        <tr style="cursor: pointer"
-                                                            onclick="window.location.href='{{ route('food.edit', ['id' => $a->id]) }}'">
-                                                            <td>{{ $key + 1 }}</td>
-                                                            <td> <img src="{{ asset($a->image) }}" alt=""
-                                                                    style="width: 40px;height:40px;"></td>
-                                                            <td>{{ $a->name }} </td>
-                                                            <td>{{ $a->meal }} </td>
-                                                            <td>₦{{ $a->price }} </td>
-
-                                                            <!-- <td>&#8358;{{ $a->delivery_amount }}</td> -->
-                                                            <td>{{ $a->stocked == 0 ? 'Out of Stock' : 'Stocked' }}</td>
-                                                        </tr>
-                                                    @endforeach
-
-                                                </tbody>
-                                            </table>
-                                        @else
-                                            <p>No trip found</p>
-                                        @endif
+                                        <div class="my-2 d-flex justify-content-center">
+                                            <a href="{{ route('food.form') }}">Add Menu</a>
+                                        </div>
+                                        <div class="my-2 d-flex justify-content-center">
+                                            <a href="{{ route('kitchen.menu') }}">Edit Menu</a>
+                                        </div>
 
                                     </div>
 

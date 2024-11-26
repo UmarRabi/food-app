@@ -8,9 +8,9 @@
     </a>
 
     <div class="delivery-menu-item">
-        <a href="{{route('kitchen.menu')}}">
+        <a href="{{route('restaurants')}}">
 
-            <h6 class="delivery-menu-text">MANAGE MENUS</h6>
+            <h6 class="delivery-menu-text">MANAGE RESTAURANTS</h6>
         </a>
     </div>
     @endif

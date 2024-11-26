@@ -45,7 +45,9 @@ Route::prefix('kitchen')->group(function () {
         ->name('kitchen.users');
     Route::get('/transaction', [PaymentController::class, 'transactions'])->name('transactions');
     Route::get('/transaction/{id}', [PaymentController::class, 'transaction'])->name('transaction');
-
+    Route::prefix('restaurants')->group((function(){
+        Route::get('/', [PaymentController::class, 'restaurants'])->name('restaurants');
+    }));
     Route::get('/orders', [PaymentController::class, 'kitchenOrders'])
         ->name('kitchen.orders');
     Route::post("/order/{id}", [PaymentController::class, 'updateStatus'])
@@ -63,6 +65,10 @@ Route::get('/continue', function () {
 Route::get('/files', function () {
     return view('files');
 });
+Route::get('/thanks', function () {
+    return view('thanks')
+    ->with('message', 'Thanks for using our application!');
+})->name('thanks');
 Route::get('/menu', function () {
     return view('menu');
 });

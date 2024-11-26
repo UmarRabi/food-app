@@ -2,13 +2,13 @@
 @section('content')
 <div class="v19_81">
     <div class="v19_82">
-        <img style="width: 100%; height: 500px" src="{{ asset('images/ordaar_login_bg.png') }}" alt="">
+        <img style="width: 100%; height: 300px" src="{{ asset('images/ordaar_login_bg.png') }}" alt="">
     </div>
 </div>
-<div class="container">
-    <div class="card" style="background: transparent !important; width:100%">
+<div class="row justify-content-center">
+    <div class="card col-xl-4 col-sm-12" style="background: transparent !important;">
 
-        <div class="card-body col-md-4 offset-4">
+        <div class="card-body">
             <h4 class="mb-4 mt-4" style="color: #1999D0; margin-left: 10px">Login</h4>
             <form action="" method="post" class="mx-3">
                 @csrf
@@ -27,11 +27,11 @@
                 </div>
             </form>
             <div class="row d-flex justify-content-center m-3">
-                <div class="col-md-6 d-flex justify-content-start" >
+                {{-- <div class="col-md-6 d-flex justify-content-start" >
                     <a href="#" style="font-size: 18px;"> Forgot Password</a>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end delivery-text">
-                    <a href="{{ route('register') }}" class="text" style="font-size: 18px;">Register</a>
+                </div> --}}
+                <div class="col-md-6 d-flex justify-content-end">
+                    <a href="{{ route('register') }}" style="font-size: 18px;">Register</a>
                 </div>
             </div>
         </div>

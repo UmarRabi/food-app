@@ -7,13 +7,13 @@
 @section('content')
 <div class="v19_81">
     <div class="v19_82">
-        <img style="width: 100%; height: 500px" src="{{ asset('images/ordaar_login_bg.png') }}" alt="">
+        <img style="width: 100%; height: 300px" src="{{ asset('images/ordaar_login_bg.png') }}" alt="">
     </div>
 </div>
-<div class="container">
-    <div class="card mt-4" style="background: transparent !important; width:100%">
+<div class="row justify-content-center">
+    <div class="card mt-4 col-xl-4" style="background: transparent !important;">
 
-        <div class="card-body col-md-4 offset-4">
+        <div class="card-body">
             <form action="" method="post" class="mx-3">
                 @csrf
                 <div class="form-group">
